@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-  #  'django.meals',
-  #  'django.exercises',
+    'Meals.apps.MealsConfig',
+    'Exercises.apps.ExercisesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
