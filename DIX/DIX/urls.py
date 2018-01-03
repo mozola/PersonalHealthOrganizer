@@ -21,5 +21,4 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^exercises/', include('Exercises.urls')),
     url(r'^meals/', include('Meals.urls')),
-    url(r'^$', views.index, name='index'),
 ]

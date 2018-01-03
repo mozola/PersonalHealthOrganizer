@@ -6,9 +6,7 @@ from .models import Meals
 
 
 def index(request):
-    context = {'all_meals': Meals.objects.all()}
-
-    return render(request, 'Meals/index.html', context)
+    return render(request, 'Meals/index.html', {'all_meals': Meals.objects.all()})
 
 
 def details(request, meal_id):

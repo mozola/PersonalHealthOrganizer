@@ -33,9 +33,15 @@
         </div>
     </nav>
 
-    <p>Nazwa posilku: {{ meals_id }}</p>
-    <p>Składniki: {{ meals_id.components }}</p>
-    <p>include/0854016fa86d48328a385abdf5c44a04.jpg</p>
-    <img src="include/0854016fa86d48328a385abdf5c44a04.jpg" >
+    <!-- Details of one meal -->
+    <div class="container">
+        <p>Nazwa posilku: {{ meals_id }}</p>
+        <p>Składniki: {{ meals_id.components }}</p>
+        <!--  <p>{{ meals_id.image}}</p> -->
+        <img src="https://www.wallpaperup.com/uploads/wallpapers/2012/07/19/6360/9e46760bfabe1318abc9f236ba776426-250.jpg"
+             class="rounded-circle" alt="Cinque Terre" width="304" height="236"/>
+    </div>
+
+
 </body>
 </html>

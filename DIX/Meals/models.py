@@ -8,7 +8,7 @@ class Meals(models.Model):
     description = models.CharField(max_length = 300)
     components = models.CharField(max_length = 200)
     callories = models.CharField(max_length = 10)
-    image = models.ImageField(upload_to = 'media/image', default = 'media/image')
+    image = models.ImageField(upload_to = 'Meals/static/meals/image', default = 'Meals/static/meals/image')
 
     def __str__(self):
         return self.name
