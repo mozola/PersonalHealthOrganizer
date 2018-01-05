@@ -31,8 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'about.apps.AboutConfig',
     'Meals.apps.MealsConfig',
     'Exercises.apps.ExercisesConfig',
+    'MyPlan.apps.MyPlanConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

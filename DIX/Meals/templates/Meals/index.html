@@ -26,7 +26,7 @@
 
             <ul class="nav navbar-nav navbar-left">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">O nas</a>
+                    <a class="nav-link" href="/about/">O nas</a>
                 </li>
 
                 <li class="nav-item">
@@ -36,6 +36,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/exercises/">Ćwiczenia</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/my_plans/">Moje plany</a>
+                </li>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -57,14 +62,17 @@
     </nav>
 
 
+    <div class="text-center">
+        <h2>Strona główna posiłków</h2>
+        <hr>
+    </div>
+    <br>
 
-    <h2>Strona głowna posilkow</h2>
     {% if all_meals %}
         <div class="container">
             <div class="row">
             {% for meal in all_meals %}
-
-                    <div class="col-sm-4" style="height:400px">
+                <div class="col-sm-4" style="height:400px">
                         <div class="card" style="width:300px">
                             <img class="card-img-top"
                             src="https://www.wallpaperup.com/uploads/wallpapers/2012/07/19/6360/9e46760bfabe1318abc9f236ba776426-250.jpg"
@@ -72,12 +80,12 @@
                             <div class="card-body">
                                 <h4 class="card-title">{{ meal.name }}</h4>
                                 <p class="card-text">{{ meal.description }}</p>
-                              <button type="button"
+                                <button type="button"
                                       class="btn btn-primary"
                                       data-toggle="modal"
                                       data-target="#myModal">
                                       Szczeguły
-                              </button>
+                                </button>
 
                                 <!-- The Modal -->
                                 <div class="modal fade" id="myModal">
@@ -97,7 +105,7 @@
                                                 <p><strong>Składniki:</strong> {{ meal.components }}</p>
                                                  <p><strong>Kalorie:</strong> {{ meal.callories }}</p>
                                                  <img src="https://www.wallpaperup.com/uploads/wallpapers/2012/07/19/6360/9e46760bfabe1318abc9f236ba776426-250.jpg"
-             class="rounded-circle" alt="Cinque Terre" width="250" height="300"/>
+                                                        class="rounded-circle" alt="Cinque Terre" width="250" height="250"/>
                                             </div>
 
                                             <!-- Modal footer -->
@@ -113,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </div>
 
             {% endfor %}
 
