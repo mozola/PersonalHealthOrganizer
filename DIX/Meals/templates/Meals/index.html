@@ -37,9 +37,16 @@
                     <a class="nav-link" href="/exercises/">Ćwiczenia</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/my_plans/">Moje plany</a>
-                </li>
+                <li class="drop-down">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/my_plans/">
+                        Moje plany
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="all/">Moje plany żywieniowe</a></li>
+                        <li><a href="my_plans">Moje plany treningowe</a></li>
+                    </ul>
+                 </li>
 
             </ul>
 
@@ -102,7 +109,7 @@
                                             <div class="modal-body">
                                                 <p><strong>Nazwa posilku:</strong> {{ meal.name }}</p>
                                                 <p><strong>Opis:</strong> {{ meal.description }}</p>
-                                                <p><strong>Składniki:</strong> {{ meal.components }}</p>
+                                                <strong>Składniki:</strong>
                                                  <p><strong>Kalorie:</strong> {{ meal.callories }}</p>
                                                  <img src="https://www.wallpaperup.com/uploads/wallpapers/2012/07/19/6360/9e46760bfabe1318abc9f236ba776426-250.jpg"
                                                         class="rounded-circle" alt="Cinque Terre" width="250" height="250"/>
