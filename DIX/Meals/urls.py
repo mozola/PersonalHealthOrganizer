@@ -7,5 +7,6 @@ urlpatterns = [
 
     #url adress with some value
     url(r'^(?P<meal_id>[0-9]+)$', views.details, name = 'details')
+
 ]
 

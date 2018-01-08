@@ -34,9 +34,16 @@
                     <a class="nav-link" href="/exercises/">Ćwiczenia</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/my_plans/">Moje plany</a>
-                </li>
+                <li class="drop-down">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/my_plans/">
+                        Moje plany
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="all/">Moje plany żywieniowe</a></li>
+                        <li><a href="#">Moje plany treningowe</a></li>
+                    </ul>
+                 </li>
 
             </ul>
 
@@ -65,8 +72,8 @@
 
     </div>
 
-    <form>
-        {% for meal in meals %}
+        {% for meal in my.plans.meals%}
+
             <p>{{ meal.name }} <input type = checkbox></p>
 
         {% endfor %}
@@ -74,6 +81,5 @@
         <br>
 
         <input type="button" value="Zatwierdz">
-    </form>
 </body>
 </html>

@@ -41,10 +41,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="all/">Moje plany żywieniowe</a></li>
-                        <li><a href="all/">Moje plany trenignowe</a></li>
-
+                        <li><a href="my_plans">Moje plany treningowe</a></li>
                     </ul>
-                 </li>
+                </li>
 
             </ul>
 
@@ -65,12 +64,21 @@
             </ul>
         </div>
     </nav>
+    <h1>Moje plany zywieniowe</h1>
+    <hr>
 
-    <div class="text-center">
-        <h1><a href="/my_plans/all/">Moje plany treningowe</h1>
-        <h1><a href="new_plan/">Stwórz nowy plan</a></h1>
-        <input type=button>Start nowego tygodnia</input>
+    {% for i in my_plans %}
+    <div class = "col-sm-12 text-center">
+        <p>{{i.plan_date}}</p>
+        <p>{{i.id}}</p>
+            {% for j in i.meals.all %}
+                <div class = "col-sm-4 text-center">
+                    <p>{{ j }}</p>
+                    <p>{{ j.type }}</p>
+                </div>
+            {% endfor %}
     </div>
+    {% endfor %}
 
 </body>
 </html>
