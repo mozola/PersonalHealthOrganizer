@@ -69,6 +69,7 @@
 
     {% for i in my_plans %}
     <div class = "col-sm-12 text-center">
+
         <p>{{i.plan_date}}</p>
         <p>{{i.id}}</p>
             {% for j in i.meals.all %}

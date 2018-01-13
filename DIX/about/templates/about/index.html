@@ -44,19 +44,22 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="/admin/">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Wyloguj się {{ user.username }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <form class="form-inline" action="/admin/">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Login">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Hasło">
+                            <button class="btn btn-success" type="submit">Zaloguj</button>
+                        </form>
+                    </li>
+                {% endif %}
 
-                <li class="nav-item">
-                    <form class="form-inline" action="/action_page.php">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </form>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/admin/">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Zaloguj się
-                    </a>
-                </li>
             </ul>
         </div>
     </nav>
