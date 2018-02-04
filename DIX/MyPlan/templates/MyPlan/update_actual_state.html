@@ -1,0 +1,10 @@
+{%extends 'MyPlan/nav_bar.html' %}
+{% block content %}
+        <p>Aktualny sprint</p>
+
+        {%for name, state in meals.iteritems%}
+            <p>{{name}}
+                <input type="checkbox" value="{{state}}">
+            </p>
+        {% endfor %}
+{% endblock %}

@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.conf import settings
 from .models import Meals
+from .forms import NewMealsForm
 
 
 def single_meal(meal_type1):
@@ -37,3 +38,11 @@ def index(request):
 
 def details(request, meal_id):
     return render(request, 'Meals/details.html', {'meals_id': Meals.objects.get(pk = meal_id)})
+
+
+def new_meal(request):
+    form = NewMealsForm(request.POST or None)
+    if form.is_valid():
+        new_meal = form.save(commit=False)
+
+    return render(request, 'Meals/new_meal.html')

@@ -1,0 +1,51 @@
+{% extends 'user/nav_bar.html' %}
+{% block content %}
+
+    <h1>Dodaj nowy przepis</h1>
+    <div id="new_meal">
+        <form class="form-horizontal text-center" name="NewMeal" action="/meals/meal_added/" method="post">
+        <div class="control-group">
+            <label class="control-label" for="username">Nazwa posiłku:</label>
+            <div class="controls">
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Krótki opis:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="username">Sposób przygotowania:</label>
+            <div class="controls">
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Składniki:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Kaloryczność:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Typ posiłku:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+            <br>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Dodaj nowy posiłek</button>
+            </div>
+        </div>
+        </form>
+    </div>
+{% endblock %}
