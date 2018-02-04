@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href = "/meals/">DIX</a>
+                <a class="navbar-brand" href = "/all_news/">DIX</a>
             </div>
 
             <ul class="nav navbar-nav navbar-left">
@@ -51,13 +51,29 @@
                     <a class="nav-link" href="/about/">O nas</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/meals/">Posiłki</a>
+               {% if user.is_authenticated %}
+                <li class="drop-down">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/meals/">
+                        Posiłki
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/meals/all/">Wszystkie posiłki</a></li>
+                        <li><a href="/meals/new_meal/">Dodan nowy posiłek</a></li>
+                        <li><a href="/meals/new_component/">Dodaj nowy składnik</a></li>
+                    </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/exercises/">Ćwiczenia</a>
-                </li>
+                <li class="drop-down">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="exercises/">
+                        Ćwiczenia
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/exercises/all/">Wszystkie ćwiczenia</a></li>
+                        <li><a href="/exercises/my_plans">Dodan nowe ćwiczenie</a></li>
+                    </ul>
+                 </li>
 
                 <li class="drop-down">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="/my_plans/">
@@ -65,10 +81,24 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="all/">Moje plany żywieniowe</a></li>
-                        <li><a href="my_plans">Moje plany treningowe</a></li>
+                        <li><a href="/my_plans/all">Moje plany żywieniowe</a></li>
+                        <li><a href="/my_plans/my_plans">Moje plany treningowe</a></li>
+                        <li><a href="/my_plans/update_actual_sprint">Aktualizuj sprint</a></li>
+                        <li><a href="/my_plans/start-sprint">Start nowego planu</a></li>
                     </ul>
                  </li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/meals/all">Posiłki</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/exercises/all">Ćwiczenia</a>
+                </li>
+                {% endif %}
+
+
 
             </ul>
 

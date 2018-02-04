@@ -25,8 +25,8 @@ urlpatterns = [
     url(r'^meals/', include('Meals.urls')),
     url(r'^my_plans/', include('MyPlan.urls')),
     url(r'^about/', include('about.urls')),
-    url(r'^user/', include('User.urls'))
-
+    url(r'^user/', include('User.urls')),
+    url(r'^', include('news.urls')),
 ]
 
 if settings.DEBUG:

@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.template import loader
-import os
-from django.conf import settings
+
 
 class Components(models.Model):
+    choices_list = (
+        ('sztuk', 'sztuk'),
+        ('kilogramy', 'kilogramy'),
+        ('gramy', 'gramy'),
+        ('litry', 'litry'),
+        ('litry', 'litry'),
+    )
     name = models.CharField(max_length = 30)
     waste = models.FloatField()
-    units = models.CharField(max_length = 10)
+    units = models.CharField(max_length = 10,
+                             choices=choices_list)
     def __str__(self):
         return self.name
 
@@ -28,10 +34,10 @@ class Meals(models.Model):
         max_length=10,
         choices=choice_list
     )
-    image = models.ImageField(upload_to = 'Meals/static/jpg/',
-                              default = 'static/jpg/')
+    image = models.ImageField(upload_to='Meals/static/jpg/',
+                              default='static/jpg/')
+
+    state = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
-
-

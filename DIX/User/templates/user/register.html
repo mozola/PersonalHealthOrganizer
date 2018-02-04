@@ -1,10 +1,51 @@
 {% extends 'include/nav_bar_temp.html' %}
-
 {% block content %}
-    <h1>Nowy użytkownik</h1>
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+
+    <h1>Dodaj nowego użytkownika</h1>
+    <div id="new_meal">
+        <form class="form-horizontal text-center" name="NewMeal" action="/meals/meal_added/" method="post">
+        <div class="control-group">
+            <label class="control-label" for="username">Nazwa użytkownika:</label>
+            <div class="controls">
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Imie</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="username">Nazwisko:</label>
+            <div class="controls">
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Hasło:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Wiek:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Waga:</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+            <br>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Dodaj nowego użytkownika</button>
+            </div>
+        </div>
+        </form>
+    </div>
 {% endblock %}

@@ -1,69 +1,5 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Posiłki</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="205">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle = "collapse" data-target = "#topNavBar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href = "/meals/">DIX</a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-left">
-                <li class="nav-item">
-                    <a class="nav-link" href="/about/">O nas</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/meals/">Posiłki</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/exercises/">Ćwiczenia</a>
-                </li>
-
-                <li class="drop-down">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="/my_plans/">
-                        Moje plany
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="all/">Moje plany żywieniowe</a></li>
-                        <li><a href="#">Moje plany treningowe</a></li>
-                    </ul>
-                 </li>
-
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li class="nav-item">
-                    <form class="form-inline" action="/action_page.php">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </form>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/admin/">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Zaloguj się
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+{%extends 'MyPlan/nav_bar.html' %}
+{% block content %}
 
     <h1>Your sprint is started</h1>
     <div class = "text-center">
@@ -74,5 +10,4 @@
         <hr>
 
     </div>
-</body>
-</html>
+{% endblock %}
