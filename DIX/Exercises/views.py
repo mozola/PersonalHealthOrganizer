@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from models import Exercises
+from .models import Exercises
 
 def single_exercise(exercise_type):
     exercises_type = {}

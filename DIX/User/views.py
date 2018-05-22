@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from forms import UserForm
+from .forms import UserForm
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
