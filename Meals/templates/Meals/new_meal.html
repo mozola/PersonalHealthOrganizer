@@ -1,0 +1,52 @@
+{% extends 'user/nav_bar.html' %}
+{% block content %}
+
+        {% if state is True%}
+            <h1>Posilek zostal dodany</h1>
+
+        {% else %}
+            <h1>Dodaj nowy przepis</h1>
+
+            <form method="POST" class="post-form">{% csrf_token %}
+                <div='container'>
+                    <div class="row">
+
+                        <div class="col-sm-2"><h4>Nazwa:</h4></div> 
+                        <div class="col-sm-10">{{ form.name }}</div>
+                    </div>
+
+                <div class="row">
+                        <div class="col-sm-2"><h4>Opis:</h4></div>
+                        <div class="col-sm-10">{{ form.description }}</div>
+                </div>
+
+                <div class="row">
+                        <div class="col-sm-2"><h4>Produkty:</h4></div>
+                        <div class="col-sm-10">{{ form.products }}</div>
+                </div>
+
+                <div class="row">
+                        <div class="col-sm-2"><h4>Zdjecie: </h4></div>
+                        <div class="col-sm-10">{{ form.image }}</div>
+                </div>
+
+                <div class="row">
+                        <div class="col-sm-2"><h4>Kalorie: </h4></div>
+                        <div class="col-sm-10">{{ form.callories }}</div>
+                </div>
+
+                <div class="row">
+                        <div class="col-sm-2"><h4>Typ posilku: </h4></div>
+                        <div class="col-sm-10">{{ form.type }}</div>
+                </div>
+                
+                <div class="col-sm-4">
+                        <div class="col-sm-8">
+                            <button type="submit" class="save btn btn-default">Save</button>
+                        </div>
+                </div>
+                </div>
+            </form>
+        {% endif %}
+
+{% endblock %}
