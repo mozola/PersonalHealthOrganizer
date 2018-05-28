@@ -19,7 +19,7 @@ script:
  - pip install pillow
 
 script:
- - python DIX/manage.py test
+ - python manage.py test
 
 after_success:
  - coverage report
