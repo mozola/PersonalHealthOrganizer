@@ -1,29 +1,20 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.conf import settings
-from .models import Meals
-from .forms import NewMealsForm
+
+from .models import Meal
+from .models import Component
+
+from .forms import NewMeal
+from .forms import NewComponent
 
 
 def single_meal(meal_type1):
-    meals_type = {}
-    index = 1
-    index_2 = 1
-    simple_list = []
+    meals = []
+    for meal in Meal.objects.filter(type=meal_type1):
+        meals.append(meal)
 
-    for meal in Meals.objects.filter(type=meal_type1):
-        if index % 3 != 0:
-            simple_list.append(meal)
-
-        else:
-            simple_list.append(meal)
-            meals_type[index_2] = simple_list
-            simple_list = []
-            index_2 = index_2 + 1
-
-        index = index + 1
-
-    return meals_type
+    return meals
 
 
 def index(request):
@@ -37,12 +28,31 @@ def index(request):
 
 
 def details(request, meal_id):
-    return render(request, 'Meals/details.html', {'meals_id': Meals.objects.get(pk = meal_id)})
+    return render(request, 'Meals/details.html', {'meals_id': Meal.objects.get(pk = meal_id)})
 
 
 def new_meal(request):
-    form = NewMealsForm(request.POST or None)
-    if form.is_valid():
-        new_meal = form.save(commit=False)
+    if request.method == "POST":
+        form = NewMeal(request.POST)
 
-    return render(request, 'Meals/new_meal.html')
+        if form.is_valid():
+            meal = form.save(commit=False)
+            meal.save()
+            return render(request, 'Meals/new_meal.html', {'state': True})
+
+    else:
+        form = NewMeal()
+    return render(request, 'Meals/new_meal.html', {'form': form})
+
+def new_component(request):
+    if request.method == "POST":
+        form = NewComponent(request.POST)
+
+        if form.is_valid():
+            component = form.save(commit=False)
+            component.save()
+            return render(request, 'Meals/new_component.html', {'state': True})
+
+    else:
+        form = NewComponent()
+    return render(request, 'Meals/new_component.html', {'form': form})

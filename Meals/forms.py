@@ -1,19 +1,29 @@
 #coding=utf-8
 from django import forms
 
+from .models import Meal
+from .models import Component
+from .models import Product
 
-class NewMealsForm(forms.ModelForm):
 
-    name = forms.CharField(max_length=15, label='Name')
-    description = forms.CharField(max_length=15, label='Desciption')
-#    components = forms.ModelMultipleChoiceField(
-#                label='Choix',
-#                queryset=poll.options.all().order_by('?'),
-#                widget=CheckboxSelectMultiple()
-#    )
-    callories = forms.CharField(max_length=15, label='Name')
-#    type = forms.ModelMultipleChoiceField(
-#                    widget=forms.CheckboxSelectMultiple,
-#                    required=True)
+class NewMeal(forms.ModelForm):
 
-    image =forms.ImageField()
+    class Meta:
+        model = Meal
+        fields = ('name', 'description','products', 'image', 'callories', 'type')
+
+
+class NewComponent(forms.ModelForm):
+
+    class Meta:
+        model = Component
+        fields = ('name', 'waste', 'units')
+
+
+class NewProduct(forms.ModelForm):
+
+    class Meta:
+        model = Product
+        fields = ('component', 'count', 'units')
+
+

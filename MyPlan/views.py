@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 import datetime
-from Meals.models import Meals
+from Meals.models import Meal
 from include import mail
 from .models import SinglePlan
 from .models import Sprints
@@ -13,7 +13,7 @@ def index(request):
 
 
 def new_plan(request):
-    return render(request, 'MyPlan/new_plan.html', {'meals': Meals.objects.all()})
+    return render(request, 'MyPlan/new_plan.html', {'meals': Meal.objects.all()})
 
 
 def my_plans(request):

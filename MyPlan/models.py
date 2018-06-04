@@ -3,15 +3,12 @@
 from django.db import models
 from django import forms
 from django.utils import timezone
-from Meals.models import Meals
+from Meals.models import Meal
 
 
 class SinglePlan(models.Model):
     plan_date = models.DateField(default = timezone.now)
-    meals = models.ManyToManyField(Meals)
-
-    def __str__(self):
-        return str('{} {}'.format(self.plan_date, self.meals))
+    meals = models.ManyToManyField(Meal)
 
 
 class Sprints(models.Model):
