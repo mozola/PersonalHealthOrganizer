@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.conf import settings
 
 from .models import Meal
+from .models import Product
 from .models import Component
 
 from .forms import NewMeal
@@ -31,19 +32,6 @@ def details(request, meal_id):
     return render(request, 'Meals/details.html', {'meals_id': Meal.objects.get(pk = meal_id)})
 
 
-def new_meal(request):
-    if request.method == "POST":
-        form = NewMeal(request.POST)
-
-        if form.is_valid():
-            meal = form.save(commit=False)
-            meal.save()
-            return render(request, 'Meals/new_meal.html', {'state': True})
-
-    else:
-        form = NewMeal()
-    return render(request, 'Meals/new_meal.html', {'form': form})
-
 def new_component(request):
     if request.method == "POST":
         form = NewComponent(request.POST)
@@ -56,3 +44,34 @@ def new_component(request):
     else:
         form = NewComponent()
     return render(request, 'Meals/new_component.html', {'form': form})
+
+
+def new_meal(request):
+    #if request.method == "POST":
+        form = NewMeal(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            data = form.cleaned_data
+
+            component = Product.create(component = data['product'],
+                                count = data['product_count'],
+                                units = data['product_units'])
+
+            query = Meal(name = data['name'],
+                         description = data['description'],
+                         products = data[component],
+                         callories = data['calories'],
+                         type = data['type'])
+            
+            query.save()
+
+            for key, value in data.items():
+                print(key)
+                print(value)
+                print(10*'*')
+
+            return render(request, 'Meals/new_meal.html', {'form': form,
+                                                        'state': True})
+        else:
+            form = NewMeal()
+        return render(request, 'Meals/new_meal.html', {'form': form})

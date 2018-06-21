@@ -1,52 +1,82 @@
 {% extends 'user/nav_bar.html' %}
 {% block content %}
 
-        {% if state is True%}
-            <h1>Posilek zostal dodany</h1>
-
-        {% else %}
-            <h1>Dodaj nowy przepis</h1>
-
-            <form method="POST" class="post-form">{% csrf_token %}
-                <div='container'>
+    <h3>Nowy posilek</h3>
+    {% if state == True %}
+        <h3>Posilek dodany</h3>
+    {% endif %}
+    
+    <form method="POST">{% csrf_token %}
+            <div class='container'>
+                <div class="row">
+    
+                    <div class="col-sm-2"><h4>Nazwa:</h4></div> 
+                    <div class="col-sm-10">{{ form.name }}</div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-sm-2"><h4>Opis:</h4></div>
+                    <div class="col-sm-10">{{ form.description }}</div>
+                </div>
+                <div style="margin: 2em; overflow: auto;width: 40%; height: 40%">
                     <div class="row">
-
-                        <div class="col-sm-2"><h4>Nazwa:</h4></div> 
-                        <div class="col-sm-10">{{ form.name }}</div>
+                        <div class="col-sm-6"><h4>Nazwa produktu:</h4></div>
+                        <div class="col-sm-6">{{ form.component }}</div>
                     </div>
 
-                <div class="row">
-                        <div class="col-sm-2"><h4>Opis:</h4></div>
-                        <div class="col-sm-10">{{ form.description }}</div>
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6"><h4>Ilosc produktu:</h4></div>
+                        <div class="col-sm-6">{{ form.product_count }}</div>
+                    </div>
 
-                <div class="row">
-                        <div class="col-sm-2"><h4>Produkty:</h4></div>
-                        <div class="col-sm-10">{{ form.products }}</div>
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6"><h4>Jednostki:</h4></div>
+                        <div class="col-sm-6">{{ form.product_units }}</div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-sm-6"><h4>Kalorie:</h4></div>
+                        <div class="col-sm-6">{{ form.callories }}</div>
+                    </div>
+                </div>
                 <div class="row">
-                        <div class="col-sm-2"><h4>Zdjecie: </h4></div>
-                        <div class="col-sm-10">{{ form.image }}</div>
+                    <div class="col-sm-12"><input type="button" value="Add new product"/></div>
                 </div>
-
+    
                 <div class="row">
-                        <div class="col-sm-2"><h4>Kalorie: </h4></div>
-                        <div class="col-sm-10">{{ form.callories }}</div>
+                    <div class="col-sm-2"><h4>Typ produktu:</h4></div>
+                    <div class="col-sm-2">{{ form.types }}</div>
                 </div>
+    
+            <input type="submit" class="save btn btn-default" value="Submit" />
+        </form>
 
-                <div class="row">
-                        <div class="col-sm-2"><h4>Typ posilku: </h4></div>
-                        <div class="col-sm-10">{{ form.type }}</div>
-                </div>
-                
-                <div class="col-sm-4">
-                        <div class="col-sm-8">
-                            <button type="submit" class="save btn btn-default">Save</button>
-                        </div>
-                </div>
-                </div>
-            </form>
-        {% endif %}
+<!--Under development
 
+        <script>
+
+            function addProduct()
+            {
+                var html = [
+                '<div class="row">',
+                '<div class="col-sm-6"><h4>Nazwa produktu:</h4></div>',
+                '<div class="col-sm-6">{{ form.product }}</div>',
+                '</div>',
+                '<div class="row">',
+                '<div class="col-sm-6"><h4>Ilosc produktu:</h4></div>',
+                '<div class="col-sm-6">{{ form.product_waste }}</div>',
+                '</div>',
+                '<div class="row">',
+                '<div class="col-sm-6"><h4>Kalorie:</h4></div>',
+                '<div class="col-sm-6">{{ form.callories }}</div>',
+                '</div>'].join(' ')
+
+                var element = document.createAttribute('div');
+                var param = document.createTextNode(html);
+                element.appendChild(param)
+                document.getElementById('products').appendChild(html)
+            }
+
+        </script>
+    -->
 {% endblock %}

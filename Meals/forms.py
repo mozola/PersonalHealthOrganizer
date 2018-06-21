@@ -5,14 +5,6 @@ from .models import Meal
 from .models import Component
 from .models import Product
 
-
-class NewMeal(forms.ModelForm):
-
-    class Meta:
-        model = Meal
-        fields = ('name', 'description','products', 'image', 'callories', 'type')
-
-
 class NewComponent(forms.ModelForm):
 
     class Meta:
@@ -26,4 +18,23 @@ class NewProduct(forms.ModelForm):
         model = Product
         fields = ('component', 'count', 'units')
 
+class NewMeal(forms.Form):
+    choices = (
+        ('sniadanie', 'sniadanie'),
+        ('podwieczorek', 'podwieczorek'),
+        ('obiad', 'obiad'),
+        ('kolacja', 'kolacja')
+    )
 
+    units = (
+        ('sztuk', 'sztuk'),
+        ('gramy', 'gramy'),
+        ('litry', 'litry')
+    )
+    name = forms.CharField(label='Meal name', max_length=30)
+    description = forms.CharField(widget = forms.TextInput())
+    component = forms.ModelChoiceField(queryset=Component.objects.all())
+    product_count = forms.IntegerField()
+    product_units = forms.CharField(max_length=10, widget=forms.Select(choices= units))
+    callories = forms.IntegerField()
+    types = forms.CharField(max_length=10, widget=forms.Select(choices= choices))
