@@ -10,6 +10,8 @@ class SinglePlan(models.Model):
     plan_date = models.DateField(default = timezone.now)
     meals = models.ManyToManyField(Meal)
 
+    def __str__(self):
+        return self.plan_date
 
 class Sprints(models.Model):
 

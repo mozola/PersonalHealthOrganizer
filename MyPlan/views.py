@@ -4,8 +4,43 @@ from django.shortcuts import render
 import datetime
 from Meals.models import Meal
 from include import mail
+
 from .models import SinglePlan
 from .models import Sprints
+
+from .forms import StartNewSprintForm
+
+#get all products from actual sprint
+def get_products(meal_type):
+    for sprint in Sprints.objects.all():
+        if sprint.sprint_status == 'Rozpoczety':
+            for single in sprint.sprint_parameters.all():
+                for meal in single.meals.all():
+                    if meal.type == meal_type:
+                        for product in meal.products.all():
+                            yield product
+
+def generate_product_list():
+    products = {}
+    temp = []
+    for i in get_products('sniadanie'):
+        temp.append(i)
+
+    products['sniadanie'] = temp
+    temp = []
+
+    for i in get_products('obiad'):
+        temp.append(i)
+
+    products['obiad'] = temp
+    temp = []
+
+    for i in get_products('kolacja'):
+        temp.append(i)
+
+    products['kolacja'] = temp
+    temp = []
+    return products
 
 
 def index(request):
@@ -24,13 +59,9 @@ def start_sprint(request):
     components = {}
     state = True
     for sprint in Sprints.objects.all():
-
         if sprint.sprint_status == 'Nowy':
-
             for sprint_param in sprint.sprint_parameters.all():
-
                 if sprint_param.plan_date == datetime.date.today():
-
                     sprint.sprint_status = 'Rozpoczety'
                     sprint.save()
                     state = True
@@ -50,7 +81,7 @@ def start_sprint(request):
                     state = True
                     return render(request, 'MyPlan/output.html',
                                   {'information':
-                                       'Jesteś w aktualnym sprincie'})
+                                   'Jesteś w aktualnym sprincie'})
 
         else:
             state = False
@@ -73,4 +104,8 @@ def update_actual_sprint(request):
                     meal.state = True
                     meal.save()
                     meals[meal.name] = meal.state
-    return render(request, 'MyPlan/update_actual_state.html', {'meals': meals})
+    generate_product_list()
+
+    return render(request, 'MyPlan/update_actual_state.html',
+                            {'meals': meals,
+                             'products': generate_product_list()})

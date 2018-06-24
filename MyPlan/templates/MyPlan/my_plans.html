@@ -1,16 +1,34 @@
 {%extends 'MyPlan/nav_bar.html' %}
 {% block content %}
 
+<!--Add basket containe to header-->
+
+<div id="message">  
+        <div class="container">
+                {% for key, value in products.items %}
+                <div class="row">
+                    {% for i in value%}
+                        <div class="col-xs-4">{{i.component}}</div>
+                        <div class="col-xs-4">{{i.count}}</div>
+                        <div class="col-xs-4">{{i.component}}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+        </div>
+</div>
+
     <h1>Moje plany zywieniowe</h1>
     <hr>
     {% for i in my_plans %}
-        <p> {{ i.sprint_name }}</p>
+        <h3> {{ i.sprint_name }}</h3>
 
         {% for single_plan in i.sprint_parameters.all %}
-            <p>{{single_plan.plan_date}}</p>
+            <h5>{{single_plan.plan_date}}</h5>
+            <ul>
             {% for meals in single_plan.meals.all %}
-                <p style="margin-left:4em">{{ meals.name }} {{ meals.state }}</p>
+                <li style="margin-left:4em">{{ meals.name }}  {{ meals.state }}</li>
             {% endfor %}
+            </ul>
         {% endfor %}
         <hr>
 
