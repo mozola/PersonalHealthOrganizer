@@ -4,8 +4,28 @@ from django.shortcuts import render
 import datetime
 from Meals.models import Meal
 from include import mail
+
 from .models import SinglePlan
 from .models import Sprints
+
+from .forms import StartNewSprintForm
+
+#get all products from actual sprint
+def get_products():
+    components = {}
+    for sprint in Sprints.objects.all():
+        if sprint.sprint_status == 'Rozpoczety':
+            for single in sprint.sprint_parameters.all():
+                if single.state != True:
+                    for meals in single.meals.all():
+                        for a in meals.products.all():
+                            if a.component not in components:
+                                components[a.component] = [a.count, a.units]
+                            else:
+                                components[a.component] = [components[a.component][0] + a.count, a.units]
+            break
+
+    return components
 
 
 def index(request):
@@ -17,22 +37,19 @@ def new_plan(request):
 
 
 def my_plans(request):
-    return render(request, 'MyPlan/my_plans.html', {'my_plans': Sprints.objects.all()})
+    return render(request, 'MyPlan/my_plans.html', {'my_plans': Sprints.objects.all(),
+                                                    'products': get_products()})
 
 
 def start_sprint(request):
     components = {}
     state = True
     for sprint in Sprints.objects.all():
-
         if sprint.sprint_status == 'Nowy':
-
             for sprint_param in sprint.sprint_parameters.all():
-
                 if sprint_param.plan_date == datetime.date.today():
-
-                    sprint.sprint_status = 'Rozpoczety'
-                    sprint.save()
+                    # sprint.sprint_status = 'Rozpoczety'
+                    # sprint.save()
                     state = True
                     for single in sprint_param.meals.all():
                         for a in single.components.all():
@@ -50,7 +67,7 @@ def start_sprint(request):
                     state = True
                     return render(request, 'MyPlan/output.html',
                                   {'information':
-                                       'Jesteś w aktualnym sprincie'})
+                                   'Jesteś w aktualnym sprincie'})
 
         else:
             state = False
@@ -73,4 +90,7 @@ def update_actual_sprint(request):
                     meal.state = True
                     meal.save()
                     meals[meal.name] = meal.state
-    return render(request, 'MyPlan/update_actual_state.html', {'meals': meals})
+
+    return render(request, 'MyPlan/update_actual_state.html',
+                            {'meals': meals,
+                             'products': get_products()})
