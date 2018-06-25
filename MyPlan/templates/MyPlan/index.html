@@ -7,10 +7,9 @@
         <div class="container">
                 {% for key, value in products.items %}
                 <div class="row">
+                    <div class="col-xs-4">{{key}}</div>
                     {% for i in value%}
-                        <div class="col-xs-4">{{i.component}}</div>
-                        <div class="col-xs-4">{{i.count}}</div>
-                        <div class="col-xs-4">{{i.component}}</div>
+                        <div class="col-xs-4">{{i}}</div>
                     {% endfor %}
                 </div>
                 {% endfor %}
