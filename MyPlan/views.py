@@ -11,36 +11,19 @@ from .models import Sprints
 from .forms import StartNewSprintForm
 
 #get all products from actual sprint
-def get_products(meal_type):
+def get_products():
+    components = {}
     for sprint in Sprints.objects.all():
         if sprint.sprint_status == 'Rozpoczety':
             for single in sprint.sprint_parameters.all():
-                for meal in single.meals.all():
-                    if meal.type == meal_type:
-                        for product in meal.products.all():
-                            yield product
-
-def generate_product_list():
-    products = {}
-    temp = []
-    for i in get_products('sniadanie'):
-        temp.append(i)
-
-    products['sniadanie'] = temp
-    temp = []
-
-    for i in get_products('obiad'):
-        temp.append(i)
-
-    products['obiad'] = temp
-    temp = []
-
-    for i in get_products('kolacja'):
-        temp.append(i)
-
-    products['kolacja'] = temp
-    temp = []
-    return products
+                for meals in single.meals.all():
+                    for a in meals.products.all():
+                        if a.component not in components:
+                            components[a.component] = [a.count, a.units]
+                        else:
+                            components[a.component] = [components[a.component] + a.count, a.units]
+                break
+        return components
 
 
 def index(request):
@@ -52,7 +35,8 @@ def new_plan(request):
 
 
 def my_plans(request):
-    return render(request, 'MyPlan/my_plans.html', {'my_plans': Sprints.objects.all()})
+    return render(request, 'MyPlan/my_plans.html', {'my_plans': Sprints.objects.all(),
+                                                    'products': get_products()})
 
 
 def start_sprint(request):
@@ -104,8 +88,7 @@ def update_actual_sprint(request):
                     meal.state = True
                     meal.save()
                     meals[meal.name] = meal.state
-    generate_product_list()
 
     return render(request, 'MyPlan/update_actual_state.html',
                             {'meals': meals,
-                             'products': generate_product_list()})
+                             'products': get_products()})
