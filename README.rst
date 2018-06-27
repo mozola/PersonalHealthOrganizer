@@ -10,6 +10,8 @@
    :target: https://travis-ci.org/mozola/DIX
    :alt: Build Status (Travis CI)
 
+
+
 DIX is the project created to manage your diets and trainings. Also this app can be used to manage your fridge
 
 What does it mean?
