@@ -12,7 +12,7 @@ from .forms import NewComponent
 
 def single_meal(meal_type1):
     meals = []
-    for meal in Meal.objects.filter(type=meal_type1):
+    for meal in Meal.objects.filter(types=meal_type1):
         meals.append(meal)
 
     return meals
@@ -21,11 +21,9 @@ def single_meal(meal_type1):
 def index(request):
 
     return render(request, 'Meals/index.html',
-                  {'breakfast': single_meal('sniadanie'),
-                   'dinner': single_meal('obiad'),
-                   'supper': single_meal('kolacja'),
-                   'meala': settings.BASE_DIR}
-                  )
+                          {'breakfast': single_meal('sniadanie'),
+                           'dinner': single_meal('obiad'),
+                           'supper': single_meal('kolacja')})
 
 
 def details(request, meal_id):
@@ -45,25 +43,25 @@ def new_component(request):
         form = NewComponent()
     return render(request, 'Meals/new_component.html', {'form': form})
 
-
 def new_meal(request):
-    #if request.method == "POST":
         form = NewMeal(request.POST)
         print(form.errors)
         if form.is_valid():
             data = form.cleaned_data
 
-            component = Product.create(component = data['product'],
-                                count = data['product_count'],
-                                units = data['product_units'])
-
-            query = Meal(name = data['name'],
-                         description = data['description'],
-                         products = data[component],
-                         callories = data['calories'],
-                         type = data['type'])
+            products = Product.create(component = data['component'],
+                                                   count = data['product_count'],
+                                                   units = data['product_units'])
             
-            query.save()
+            products.save()
+
+            meals = Meal.create(name = data['name'],
+                                description = data['description'],
+                                products = products,
+                                callories = data['callories'],
+                                types = data['types'])
+            
+            products.save()
 
             for key, value in data.items():
                 print(key)

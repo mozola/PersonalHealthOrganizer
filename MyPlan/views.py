@@ -48,8 +48,7 @@ def start_sprint(request):
         if sprint.sprint_status == 'Nowy':
             for sprint_param in sprint.sprint_parameters.all():
                 if sprint_param.plan_date == datetime.date.today():
-                    # sprint.sprint_status = 'Rozpoczety'
-                    # sprint.save()
+
                     state = True
                     for single in sprint_param.meals.all():
                         for a in single.components.all():

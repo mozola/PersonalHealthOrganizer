@@ -2,6 +2,7 @@
 from django.db import models
 from django.db.models import Sum
 
+
 class Component(models.Model):
     choices_list = (
         ('sztuk', 'sztuk'),
@@ -28,7 +29,13 @@ class Product(models.Model):
                             choices=choices_list)
 
     def __str__(self):
-        return '{}\t{}\t{}'.format(self.component, self.count, self.units)
+        return str(self.component)
+
+
+    @classmethod
+    def create(cls, component, count, units):
+        product = cls(component=component, count=count, units = units)
+        return product
 
 class Meal(models.Model):
 
@@ -42,7 +49,7 @@ class Meal(models.Model):
     description = models.CharField(max_length = 500)
     products = models.ManyToManyField(Product)
     callories = models.CharField(max_length = 10)
-    type = models.CharField(max_length=10,
+    types = models.CharField(max_length=15,
                             choices=choice_list)
     image = models.ImageField(upload_to='Meals/static/jpg/',
                               default='static/jpg/')
@@ -52,3 +59,13 @@ class Meal(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def create(cls, name, description, products, callories, types):
+        products = cls(name=name,
+                       description=description,
+                       products = products,
+                       callories = callories,
+                       types=types)
+
+        return products

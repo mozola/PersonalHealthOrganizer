@@ -5,8 +5,8 @@ from .models import Product
 from .models import Component
 
 class MealAdmin(admin.ModelAdmin):
-    list_display = ['name',  'type']
-    list_filter = ['name', 'type']
+    list_display = ['name',  'types']
+    list_filter = ['name', 'types']
     search_fields = ['name']
     ordering = ['name']
 
