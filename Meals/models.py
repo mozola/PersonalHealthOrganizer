@@ -16,6 +16,9 @@ class Component(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def __unicode__(self):
+        return self.name
 
 class Product(models.Model):
     choices_list = (
@@ -29,8 +32,7 @@ class Product(models.Model):
                             choices=choices_list)
 
     def __str__(self):
-        return str(self.component)
-
+        return str(self.count)
 
     @classmethod
     def create(cls, component, count, units):
@@ -59,6 +61,9 @@ class Meal(models.Model):
 
 
     def __str__(self):
+        return self.name
+
+    def __unicode__(self):
         return self.name
 
     @classmethod
