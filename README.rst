@@ -3,7 +3,7 @@
 ========
 
 .. image:: https://readthedocs.org/projects/sphinx/badge/?version=master
-   :target: https://dix.readthedocs.io/en/latest/
+   :target: https://dix.readthedocs.io/pl/latest/
    :alt: Documentation Status
 
 .. image:: https://travis-ci.org/sphinx-doc/sphinx.svg?branch=master
