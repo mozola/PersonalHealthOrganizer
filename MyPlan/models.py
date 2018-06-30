@@ -9,7 +9,10 @@ from Meals.models import Meal
 class SinglePlan(models.Model):
     plan_date = models.DateField(default = timezone.now)
     meals = models.ManyToManyField(Meal)
+<<<<<<< HEAD
     state = models.BooleanField(default=False)
+=======
+>>>>>>> d63415e96c9f861b3dc70247f25526a63ee5f312
 
 class Sprints(models.Model):
 

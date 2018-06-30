@@ -16,8 +16,13 @@ def get_products():
     for sprint in Sprints.objects.all():
         if sprint.sprint_status == 'Rozpoczety':
             for single in sprint.sprint_parameters.all():
+<<<<<<< HEAD
                 if single.state != True:
                     for meals in single.meals.all():
+=======
+                for meals in single.meals.all():
+                    if meals.state != True:
+>>>>>>> d63415e96c9f861b3dc70247f25526a63ee5f312
                         for a in meals.products.all():
                             if a.component not in components:
                                 components[a.component] = [a.count, a.units]
@@ -48,7 +53,12 @@ def start_sprint(request):
         if sprint.sprint_status == 'Nowy':
             for sprint_param in sprint.sprint_parameters.all():
                 if sprint_param.plan_date == datetime.date.today():
+<<<<<<< HEAD
 
+=======
+                    # sprint.sprint_status = 'Rozpoczety'
+                    # sprint.save()
+>>>>>>> d63415e96c9f861b3dc70247f25526a63ee5f312
                     state = True
                     for single in sprint_param.meals.all():
                         for a in single.components.all():
