@@ -29,7 +29,6 @@ class Product(models.Model):
                             choices=choices_list)
 
     def __str__(self):
-<<<<<<< HEAD
         return str(self.component)
 
 
@@ -37,9 +36,7 @@ class Product(models.Model):
     def create(cls, component, count, units):
         product = cls(component=component, count=count, units = units)
         return product
-=======
-        return '{}\t{}\t{}'.format(self.component, self.count, self.units)
->>>>>>> d63415e96c9f861b3dc70247f25526a63ee5f312
+
 
 class Meal(models.Model):
 
