@@ -12,6 +12,7 @@ from .forms import NewComponent
 
 def single_meal(meal_type1):
     meals = []
+    
     for meal in Meal.objects.filter(types=meal_type1):
         meals.append(meal)
 
