@@ -13,12 +13,32 @@
         </div>
     </div>
 
-    <p>Aktualny sprint</p>
+    <center>
+        <h1>Aktualny sprint</h1>
+    </center>
 
-        {%for name, state in meals.iteritems%}
-            <p>{{name}}
-                <input type="checkbox" value="{{state}}">
-            </p>
-        {% endfor %}
+    <table class="table table-striped">
+            <thread>
+                <th>Data</th>
+                <th>Nazwa</th>
+                <th>Typ posiłku</th>
+                <th>Status</th>
+            </thread>
+            <tbody>
+                {% for date, meal in meals.iteritems %}
+                    {% for i in meal %}
+                        <tr>
+                            <th>{{ date }}</th>
+                            <th>{{ i.name }}</th>
+                            <th> {{ i.types }}</th>
+                            <th><input type="checkbox" {% if i.state %} checked {% endif %}  /></th>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+
+            </tbody>
+    </table>
+    <center>
         <input type="button" value="Aktualizuj">
+    </center>
 {% endblock %}

@@ -10,7 +10,8 @@ from .models import Sprints
 
 from .forms import StartNewSprintForm
 
-#get all products from actual sprint
+
+#  get all products from actual sprint
 def get_products():
     components = {}
     for sprint in Sprints.objects.all():
@@ -25,7 +26,6 @@ def get_products():
                             else:
                                 components[a.component] = [components[a.component][0] + a.count, a.units]
             break
-
     return components
 
 
@@ -83,15 +83,19 @@ def start_sprint(request):
 
 
 def update_actual_sprint(request):
-    meals = {}
+    singles = {}
+    meals = []
     for sprint in Sprints.objects.all():
         if sprint.sprint_status == 'Rozpoczety':
             for single in sprint.sprint_parameters.all():
                 for meal in single.meals.all():
-                    meal.state = True
-                    meal.save()
-                    meals[meal.name] = meal.state
+                    # meal.state = True
+                    # meal.save()
+                    meal_date = single.plan_date
+                    meals.append(meal)
+                singles[meal_date] = meals
+                meals = []
 
     return render(request, 'MyPlan/update_actual_state.html',
-                            {'meals': meals,
+                            {'meals': singles,
                              'products': get_products()})

@@ -6,7 +6,7 @@ SUBJECT = 'Lista zakupow na sprint'
 TEXT ='Poniżej znajduje się lista zakupów na najbliższy sprint \r'
 
 SENDER = 'mozola.waldemar@gmail.com'      #please write your email
-PASSWORD = 'atb7jwnd'                       #please write your password to email
+PASSWORD = ''                             #please write your password to email
 
 FOTTER = "\rPozdrawiam, \r Program DIX \r Ta wiadomosc zostala wyslana automatycznie."
 

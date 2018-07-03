@@ -4,6 +4,7 @@ from .models import Meal
 from .models import Product
 from .models import Component
 
+
 class MealAdmin(admin.ModelAdmin):
     list_display = ['name',  'types']
     list_filter = ['name', 'types']
