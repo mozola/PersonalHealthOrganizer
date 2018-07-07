@@ -31,7 +31,7 @@
                             <th>{{ date }}</th>
                             <th>{{ i.name }}</th>
                             <th> {{ i.types }}</th>
-                            <th><input type="checkbox" {% if i.state %} checked {% endif %}  /></th>
+                            <th><input type="checkbox" name="checks[]" {% if i.state %} checked {% endif %} /></th>
                         </tr>
                     {% endfor %}
                 {% endfor %}

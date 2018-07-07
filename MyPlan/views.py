@@ -3,7 +3,7 @@
 from django.shortcuts import render
 import datetime
 from Meals.models import Meal
-from include import mail
+# from include import mail
 
 from .models import SinglePlan
 from .models import Sprints
@@ -78,7 +78,7 @@ def start_sprint(request):
                                                     {'information':
                                                         'Brak nowego sprintu lub termin nie pasuje do żdnego'})
 
-    mail.send_main(components)
+    # mail.send_main(components)
     return render(request, 'MyPlan/start_sprint.html', {'components': components})
 
 
@@ -95,7 +95,7 @@ def update_actual_sprint(request):
                     meals.append(meal)
                 singles[meal_date] = meals
                 meals = []
-
+    print(request.POST.getlist('checks'))
     return render(request, 'MyPlan/update_actual_state.html',
                             {'meals': singles,
                              'products': get_products()})
