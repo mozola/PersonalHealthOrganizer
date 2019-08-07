@@ -13,6 +13,9 @@ class Component(models.Model):
     units = models.CharField(max_length = 10,
                             choices=choices_list)
 
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     choices_list = (
         ('sztuk', 'sztuk'),
@@ -23,6 +26,9 @@ class Product(models.Model):
     count = models.IntegerField()
     units = models.CharField(max_length = 10,
                             choices=choices_list)
+
+    def __str__(self):
+        return '{}\t{}\t{}'.format(self.component, self.count, self.units)
 
 class Meal(models.Model):
 

@@ -31,6 +31,7 @@ def index(request):
 def details(request, meal_id):
     return render(request, 'Meals/details.html', {'meals_id': Meal.objects.get(pk = meal_id)})
 
+
 def new_component(request):
     if request.method == "POST":
         form = NewComponent(request.POST)

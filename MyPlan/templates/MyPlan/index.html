@@ -1,6 +1,20 @@
 {%extends 'MyPlan/nav_bar.html' %}
 {% block content %}
 
+<!--Add basket containe to header-->
+
+<div id="message">  
+        <div class="container">
+                {% for key, value in products.items %}
+                <div class="row">
+                    <div class="col-xs-4">{{key}}</div>
+                    {% for i in value%}
+                        <div class="col-xs-4">{{i}}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+        </div>
+</div>
 
     <div class="text-center">
         <h1><a href="/my_plans/all/">Moje plany treningowe</a></h1>
