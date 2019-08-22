@@ -1,0 +1,18 @@
+/* Meals section */
+
+.meal-container h1{
+    color:white;
+    padding-top: 5%;
+}
+
+.meal-container h3{
+    color:white;
+}
+
+.meal-container p{
+    color:white;
+}
+
+.meal-container .meal{
+    border-color: azure;
+}

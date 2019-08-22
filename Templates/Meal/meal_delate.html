@@ -1,0 +1,10 @@
+{% extends "Common/base.html" %}
+
+{% block content %}
+
+    <form action="." method="POST"> {% csrf_token %}
+        <h1>Remove this meal</h1> 
+        <p><input type="submit" value="Yes"/> <a href="../../all/">Cancel</a></p>
+    </form>
+
+{% endblock %}
