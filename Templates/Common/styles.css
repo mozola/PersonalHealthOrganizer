@@ -1,0 +1,52 @@
+.containe {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.containe img {
+    vertical-align: middle;
+    width: 100%;
+    height: 800px;
+}
+
+.containe .img {
+    vertical-align: middle;
+    width: 100%;
+}
+
+
+.containe .conten {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 40px;
+}
+
+
+/* About section  */
+
+
+.about-container{
+    padding-left: 5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+.about-container h1{
+    color: white;
+    font-size: 40px;
+    padding-top: 5%;
+}
+
+.about-container p {
+    color: white;
+    font-size: 15px;
+    font-family: fantasy;
+}
+
+
+body {
+    background-image: linear-gradient(to right top, #0c264e, #004f6b, #39787b, #7a9d8c, #bbc2aa);
+}

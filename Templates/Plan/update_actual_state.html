@@ -1,0 +1,44 @@
+{%extends 'Common/base.html' %}
+{% block content %}
+    <div id="message">  
+        <div class="container">
+                {% for key, value in products.items %}
+                <div class="row">
+                    <div class="col-xs-4">{{key}}</div>
+                    {% for i in value%}
+                        <div class="col-xs-4">{{i}}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+
+    <center>
+        <h1>Aktualny sprint</h1>
+    </center>
+
+    <table class="table table-striped">
+            <thread>
+                <th>Data</th>
+                <th>Nazwa</th>
+                <th>Typ posiłku</th>
+                <th>Status</th>
+            </thread>
+            <tbody>
+                {% for date, meal in meals.iteritems %}
+                    {% for i in meal %}
+                        <tr>
+                            <th>{{ date }}</th>
+                            <th>{{ i.name }}</th>
+                            <th> {{ i.types }}</th>
+                            <th><input type="checkbox" name="checks[]" {% if i.state %} checked {% endif %} /></th>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+
+            </tbody>
+    </table>
+    <center>
+        <input type="button" value="Aktualizuj">
+    </center>
+{% endblock %}
