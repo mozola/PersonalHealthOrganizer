@@ -35,6 +35,7 @@ def meal_delete_view(request, meal_id):
         return redirect('../../')
     return render(request, 'Meal/meal_delate.html')
 
+
 class MealDetailView(DetailView):
     template_name = ''
     queryset = Meal.objects.all()
@@ -48,6 +49,7 @@ class ComponentCreateView(CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
 
 class MealCreateView(CreateView):
     template_name = 'Meal/meal_new.html'
