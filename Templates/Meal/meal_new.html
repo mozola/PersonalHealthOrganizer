@@ -8,65 +8,38 @@
 
 {% block content %}
 
-    <h1>Create or update meal</h1>
+    <h1 class="header">Create or update meal</h1>
 
-    <form action='.' method='POST'>{% csrf_token %}
+    <form class="meal-form" action='.' method='POST'>{% csrf_token %}
 
-        <label for="{{ form.name.id_for_label }}">Meal name</label>
-        {{form.name}}
-        <br>
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Meal name</label>
+            {{form.name}}
+        </div>
 
-        <label for="{{ form.description.id_for_label }}">Meal description</label>
-        {{form.description}}        
-        <br>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Meal description</label>
+            {{form.description}}        
+        </div>
 
-        <label for="{{ form.products.id_for_label }}">Meal products</label>
-        {{form.products}}
-        <br>
+        <div class="form-group">
+            <label for="{{ form.products.id_for_label }}">Meal products</label>
+            {{form.products}}
+        </div>
 
-        <label for="{{ form.callories.id_for_label }}">Meal callories</label>
-        {{form.callories}}
-        <br>
+        <div class="form-group">
+            <label for="{{ form.callories.id_for_label }}">Meal callories</label>
+            {{form.callories}}
+        </div>
 
-        <label for="{{ form.types.id_for_label }}">Meal types</label>
-        {{form.types}}
-        </br>
+        <div class="form-group">
+            <label for="{{ form.types.id_for_label }}">Meal types</label>
+            {{form.types}}
+        </div>
 
-        <label for="{{ form.state.id_for_label }}">Meal state</label>
-        {{form.state}}
-        </br>
-
-        <input type='submit' value='Save' />
+        <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
 
     </form>
-    
-    <h1 id="result"/>
 
-    <script type="text/javascript">
-
-
-        function getSelectedOption(sel) {
-        var opt;
-        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
-            opt = sel.options[i];
-            if ( opt.selected === true ) {
-                break;
-            }
-        }
-        return opt;
-}
-        element = document.getElementById("result")
-        {% comment %} var calories = document.getElementById("id_callories").value; {% endcomment %}
-        
-        {% comment %} element.innerHTML = calories; {% endcomment %}
-        var sel = document.getElementById('{{form.products.id_for_label}}');
-
-        {% comment %} var opt = sel.options[sel.selectedIndex]; {% endcomment %}
-        var opt = getSelectedOption(sel);
-
-        element.innerHTML = opt.text;
-            
-
-    </script>
 
 {% endblock %}

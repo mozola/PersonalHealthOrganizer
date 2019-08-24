@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, details, meal_delete_view, MealCreateView, MealUpdateView, ComponentCreateView
+
+from .views import (index, details, meal_delete_view,
+                    MealCreateView, MealUpdateView,
+                    ComponentCreateView)
 
 
 app_name = 'meal'
