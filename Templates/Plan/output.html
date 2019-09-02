@@ -1,4 +1,28 @@
 {%extends 'Common/base.html' %}
 {% block content %}
-    <h1 class = "text-center">{{information}}</h1>
+    <center>
+        <h1 class="plan-header">{{information}} : {{plan_object.sprint_name}}</h1>
+    </center>
+
+    <table class="table table-striped"/>
+
+       <thread>
+            <th>Data</th>
+            <th>Posiłek</th>
+            <th>Status</th>
+        </thread>
+        
+        <tbody>
+            {% for single_plan in plan_object.sprint_parameters.all %}
+                {% for meals in single_plan.meals.all %}
+                <tr>
+                    <th>{{single_plan.plan_date}}</th>
+                    <th>{{ meals.name }}</th>
+                    <th>{{ meals.state }}</th>
+                </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+
+    </table>
 {% endblock %}

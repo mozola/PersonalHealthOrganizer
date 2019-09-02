@@ -2,10 +2,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$',views.index, name = 'index'),
-    url(r'^new_plan', views.new_plan, name = 'new_plan'),
+    url(r'^new_plan/', views.CreatePlan.as_view(), name = 'new_plan'),
+    url(r'^new_plan_day/', views.CreatePlanDay.as_view(), name = 'new_plan_day'),
     url(r'^my_plans', views.my_plans, name='my_plans'),
-    url(r'^all', views.my_plans, name='my_plans'),
-    url(r'^start-sprint', views.start_sprint, name='my_plans'),
-    url(r'^update_actual_sprint', views.update_actual_sprint, name='update_sprint'),
+    url(r'^all', views.my_plans, name='my_plans_all'),
+    url(r'^start-sprint', views.start_sprint, name='start-sprint'),
 ]
