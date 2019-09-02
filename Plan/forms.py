@@ -1,10 +1,18 @@
 from django import forms
-from .models import Sprint
+from .models import Sprint, SinglePlan
 
 
-class StartNewSprintForm(forms.Form):
+class StartNewPlanForm(forms.Form):
     component = forms.ModelChoiceField(queryset=Sprint.objects.all())
     status = forms.BooleanField()
 
-class UpdateNewSprintForm(forms.Form):
-    pass
+class StartNewDayPlanForm(forms.ModelForm):
+    class Meta:
+        model = SinglePlan
+        fields = ('plan_date', 'meals', 'state')
+
+class PlanCreateForm(forms.ModelForm):
+
+    class Meta:
+        model=Sprint
+        fields=('sprint_name', 'sprint_parameters', 'sprint_status')

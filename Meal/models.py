@@ -13,6 +13,7 @@ class Component(models.Model):
     waste = models.FloatField()
     units = models.CharField(max_length = 10,
                             choices=choices_list)
+    calories = models.IntegerField()
 
     def __str__(self):
         return self.name
@@ -31,6 +32,7 @@ class Product(models.Model):
     component = models.ForeignKey(Component, on_delete=True)
     count = models.IntegerField()
     units = models.CharField(max_length=10, choices=choices_list)
+    calories = models.IntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
         temp = f'{str(self.component)} \t {str(self.count)} \t {str(self.units)}'
@@ -53,7 +55,7 @@ class Meal(models.Model):
     name = models.CharField(max_length = 60)
     description = models.CharField(max_length = 500)
     products = models.ManyToManyField(Product)
-    callories = models.CharField(max_length = 10)
+    callories = models.IntegerField(null=True, blank=True, default=0)
     types = models.CharField(max_length=15, choices=choice_list)
     state = models.BooleanField(default=False)
 
@@ -62,6 +64,9 @@ class Meal(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def __str__(self):
+        return f'{self.name}, \t {self.callories} kalorie, \t {self.types}'
 
     @classmethod
     def create(cls, name, description, products, callories, types):

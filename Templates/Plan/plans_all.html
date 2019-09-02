@@ -1,0 +1,60 @@
+{%extends 'Common/base.html' %}
+{% block content %}
+
+<!--Add basket containe to header-->
+
+<br><br>
+
+    <div id="message">  
+            <div class="container">
+                    {% for key, value in products.items %}
+                    <div class="row">
+                        <div class="col-xs-4">{{key}}</div>
+                        {% for i in value%}
+                            <div class="col-xs-4">{{i}}</div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+            </div>
+    </div>
+
+    <center><h1 class="plan-header">Moje plany żywieniowe</h1></center>
+
+    <div class="table-style">
+        {% for i in my_plans %}
+
+            <div class="table-header">
+                <h2 class="table-header-left">{{ i.sprint_name }}</h2>
+                <h2 class="table-header-right"> Status: {{i.sprint_status}}</h2>
+            </div>
+
+            <table class="table table-dark table-striped"/>
+
+                <thread>
+                    <th>Data</th>
+                    <th>Posiłek</th>
+                    <th>Status</th>
+                </thread>
+        
+                <tbody>
+                    {% for single_plan in i.sprint_parameters.all %}
+                        {% for meals in single_plan.meals.all %}
+                        {% if single_plan.state %}
+                            <tr class="success">
+                        {% else %}
+                            <tr class="warning">
+                        {% endif %}
+                            <th>{{single_plan.plan_date}}</th>
+                            <th>{{ meals.name }}</th>
+                            <th>{{ single_plan.state }}</th>
+                        </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+
+        {% endfor %}
+    </div>
+{% endblock %}

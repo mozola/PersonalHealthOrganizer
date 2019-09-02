@@ -38,9 +38,11 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/plan/all">Moje plany żywieniowe</a></li>
-                        <li><a href="/plan/my_plans">Moje plany treningowe</a></li>
-                        <li><a href="/plan/update_actual_sprint">Aktualizuj sprint</a></li>
+                        <li><a href="/plan/new_plan">Tworzenie planu żywieniowego</a></li>
+                        <li><a href="/plan/new_plan_day">Tworzenie jednodniowego planu żywieniowego</a></li>
+                        <li><a href="/plan/all">Istniejące plany żywieniowe</a></li>
+                        <li><a href="/plan/my_plans">Istniejące plany treningowe</a></li>
+                        <li><a href="/plan/update_actual_sprint">Aktualizacja aktualnego planu</a></li>
                         <li><a href="/plan/start-sprint">Start nowego planu</a></li>
                     </ul>
                  </li>
@@ -60,10 +62,10 @@
                 {% if user.is_authenticated %}
 
                 <li class="nav-item">
-                        <a href="/user/basket/">
+                        <a href="#" id="cart">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
 
-                            </span>&nbsp;Koszyk</a>
+                            </span>&nbsp;Koszyk <span class="badge">3</span></a>
                 </li>
 
                 <li class="nav-item">

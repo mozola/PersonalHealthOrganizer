@@ -13,6 +13,6 @@ urlpatterns = [
     path('new_meal/', MealCreateView.as_view(), name = 'new_meal'),
     path('new_component/', ComponentCreateView.as_view(), name = 'new_component'),
     path('<int:meal_id>/delete/', meal_delete_view, name='delete_meal'),
-    # path('<int:meal_id>/detail/', details, name='detail_meal'),
+    path('<int:meal_id>/detail/', details, name='detail_meal'),
     path('<int:meal_id>/update/', MealUpdateView.as_view(), name='update-view'),
 ]

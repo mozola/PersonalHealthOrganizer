@@ -1,0 +1,25 @@
+{% extends "Common/base.html" %}
+
+{% block content %}
+
+    <form method="POST" class="meal-form">{% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.plan_date.id_for_label }}">Planowana data</label>
+            {{ form.plan_date }}
+        </div>
+    
+        <div class="form-group">
+            <label for="{{ form.meals.id_for_label }}">Planowane posiłki</label>
+            {{ form.meals }}
+        </div>
+    
+        <div class="form-group">
+            <label for="{{ form.state.id_for_label }}">Aktualny status</label>
+            {{ form.state }}
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
+
+    </form>
+
+{% endblock %}

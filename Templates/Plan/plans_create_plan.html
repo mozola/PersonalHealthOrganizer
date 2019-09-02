@@ -1,0 +1,30 @@
+{%extends 'Common/base.html' %}
+{% block content %}
+
+
+    <form method="POST" class="meal-form">{% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.sprint_user.id_for_label }}">Id planu</label>
+            {{ form.sprint_user }}
+        </div>
+    
+        <div class="form-group">
+            <label for="{{ form.sprint_name.id_for_label }}">Nazwa planu</label>
+            {{ form.sprint_name }}
+        </div>
+    
+        <div class="form-group">
+            <label for="{{ form.sprint_parameters.id_for_label }}">Pojedyncze plany</label>
+            {{ form.sprint_parameters }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.sprint_status.id_for_label }}">Aktualny status</label>
+            {{ form.sprint_status }}
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
+
+    </form>
+
+{% endblock %}

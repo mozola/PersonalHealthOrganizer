@@ -5,7 +5,7 @@ from .models import Component
 
 
 class MealAdmin(admin.ModelAdmin):
-    list_display = ['name',  'types']
+    list_display = ['name',  'types', 'callories']
     list_filter = ['name', 'types']
     search_fields = ['name']
     ordering = ['name']
@@ -18,7 +18,7 @@ class ComponentAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['component', 'count', 'units']
+    list_display = ['component', 'count', 'units', 'calories']
 
 
 admin.site.register(Meal, MealAdmin)
