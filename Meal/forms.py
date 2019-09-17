@@ -4,6 +4,7 @@ from .models import Meal
 from .models import Component
 from .models import Product
 
+
 class NewComponent(forms.ModelForm):
 
     class Meta:
@@ -25,7 +26,7 @@ class NewProduct(forms.ModelForm):
         """
         components = self.clean_data.get('component')
         callories = [i.calories for i in components]
-        return sum(calories)
+        return sum(callories)
 
 
 class NewMealForm(forms.ModelForm):
@@ -33,7 +34,8 @@ class NewMealForm(forms.ModelForm):
     class Meta:
         model = Meal
         fields = ('name', 'description', 'products', 'callories', 'types', 'state')
-        widgets = {'callories': forms.TextInput(attrs={'disabled': True})}
+        widgets = {'callories': forms.TextInput(attrs={'disabled': True}),
+                   'products': forms.CheckboxSelectMultiple()}
 
     def clean_callories(self, *args, **kwargs):
         """

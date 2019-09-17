@@ -1,0 +1,53 @@
+{% extends "Common/base.html" %}
+
+{% block title %}
+    <title>Szczeguły planu</title>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+<br><br>
+
+<div class="jumbotron">
+    <h1>Plan na dzień {{object}}</h1>
+    <p>Zaktualizuj swój dzienny plan</p>
+</div>
+
+<div class="panel panel-success">
+
+    <div class="panel-heading table-header"></div>
+        <div class="panel-body">
+            <table class="table table-dark table-striped"/>
+                <thread>
+                    <th>Data</th>
+                    <th>Posiłek</th>
+                    <th>Typ posiłku</th>
+                </thread>
+
+                <tbody>
+
+                {% for meals in object.meals.all %}
+                    {% if single_plan.state %}
+                        <tr class="success">
+                    {% else %}
+                        <tr class="warning">
+                    {% endif %}
+                            <th>{{object.plan_date}}</th>
+                            <th>{{ meals.name }}</th>
+                            <th>{{ meals.types }}</th>
+                        </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+            <input type="submit" value="Edit" class="btn btn-primary submit-btn"/>
+            <input type="submit" value="Remove" class="btn btn-primary submit-btn"/>
+            <input type="submit" value="Finished" class="btn btn-primary submit-btn"/>
+
+        </div>
+</div>
+</div>
+{% endblock %}

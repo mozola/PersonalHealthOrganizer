@@ -1,5 +1,3 @@
-#coding=utf-8
-
 from django.db import models
 from django import forms
 from django.utils import timezone
@@ -29,4 +27,4 @@ class Sprint(models.Model):
     sprint_user = models.ForeignKey(USER, default=1, null=True, on_delete=models.CASCADE)
     sprint_name = models.CharField(max_length = 20)
     sprint_parameters = models.ManyToManyField(SinglePlan)
-    sprint_status = models.CharField(choices=choices , max_length=10)
+    sprint_status = models.CharField(choices=choices, default=True, max_length=10)

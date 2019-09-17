@@ -2,24 +2,35 @@
 
 {% block content %}
 
+<div class="container">
+     <br><br>
+     <div class="jumbotron">
+          <h1>Jednodniowy plan zywieniowy</h1>
+          <p>Zaplanuj swój dzień z PHD</p>
+     </div>
+
     <form method="POST" class="meal-form">{% csrf_token %}
-        <div class="form-group">
+
+    <div class="panel panel-success">
+
+        <div class="panel-heading"></div>
+
+        <div class="panel-body">
+
+          <div class="form-group">
             <label for="{{ form.plan_date.id_for_label }}">Planowana data</label>
             {{ form.plan_date }}
-        </div>
+          </div>
     
-        <div class="form-group">
+          <div class="form-ul">
             <label for="{{ form.meals.id_for_label }}">Planowane posiłki</label>
             {{ form.meals }}
-        </div>
-    
-        <div class="form-group">
-            <label for="{{ form.state.id_for_label }}">Aktualny status</label>
-            {{ form.state }}
-        </div>
+          </div>
 
-        <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
-
-    </form>
+          <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
+	</div>
+      </div>
+     </form>
+</div>
 
 {% endblock %}

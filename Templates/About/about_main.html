@@ -8,13 +8,25 @@
             </div>
         </div>
 
-        <div class="about-container ">
-            {% for cont in contents %}
-                <h1>{{ cont.title }}</h1>
-                <br>
-                <p>{{ cont.content }}</p>
+        <div class="container">
+            {% for const in contents %}
+
+                {% if const.article_type in header %}
+                    <div class="page-header">
+                        <h1>{{ const.title }}<small>{{ const.content }}</small></h1>
+                    </div>
+                {% else %}
+                    <div class="about-container ">
+                            <h1>{{ const.title }}</h1>
+                            <br>
+                            <p>{{ const.content }}</p>
+                    </div>
+                {% endif %}
+
+
+
+
             {% endfor %}
         </div>
 
-    </div>
 {% endblock %}

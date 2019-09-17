@@ -1,30 +1,39 @@
 {%extends 'Common/base.html' %}
 {% block content %}
 
+<div class="container">
+     <br><br>
+     <div class="jumbotron">
+          <h1>Nowy plan żywieniowy</h1>
+          <p>Zaprojektuj swoją własną dietę</p>
+     </div>
+</div>
 
-    <form method="POST" class="meal-form">{% csrf_token %}
-        <div class="form-group">
-            <label for="{{ form.sprint_user.id_for_label }}">Id planu</label>
-            {{ form.sprint_user }}
-        </div>
-    
-        <div class="form-group">
+<form method="POST" class="meal-form">{% csrf_token %}
+  <div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading"></div>
+
+        <div class="panel-body">
+          <div class="form-group">
             <label for="{{ form.sprint_name.id_for_label }}">Nazwa planu</label>
             {{ form.sprint_name }}
-        </div>
+          </div>
     
-        <div class="form-group">
+          <div class="form-ul">
             <label for="{{ form.sprint_parameters.id_for_label }}">Pojedyncze plany</label>
             {{ form.sprint_parameters }}
-        </div>
+          </div>
 
-        <div class="form-group">
+          <div class="form-group">
             <label for="{{ form.sprint_status.id_for_label }}">Aktualny status</label>
             {{ form.sprint_status }}
-        </div>
+          </div>
 
-        <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
+          <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
 
+	</div>
+	</div>
     </form>
 
 {% endblock %}
