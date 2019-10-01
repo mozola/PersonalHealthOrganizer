@@ -11,6 +11,8 @@
    :alt: Build Status (Travis CI)
 
 
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-13-29-43-1200x598.png
+   :alt: First screen
 
 DIX is the project created to manage your diets and trainings. Also this app can be used to manage your fridge
 
