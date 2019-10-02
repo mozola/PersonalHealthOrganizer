@@ -27,7 +27,7 @@ def get_products():
 class CreatePlan(CreateView):
     template_name = 'Plan/plans_create_plan.html'
     form_class = PlanCreateForm
-    queryset=get_products()
+    queryset=Sprint.objects.all()
     success_url = '/'
 
     def form_valid(self, form):
