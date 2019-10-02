@@ -1,20 +1,40 @@
 {%extends 'Common/base.html' %}
-    {% block content %}
-        <div class="containe">
-            <img class="img" src="http://2.bp.blogspot.com/-3NmrvZWsIsI/UYHJZ1qsevI/AAAAAAAAt9Q/S83pTkMWD-k/s1600/Health+HD+Wallpaper+(1).jpeg" alt="Food"/>
-            <div class="conten">
-                <h1>PersonalHealthOrganizer</h1>
-                <h4>Twój zdrowotny organizer</h4>
+
+{% block styles %}
+    {% include "Common/styles.css" %}
+    {% include "About/styles.css" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="landing-col col-xs-12">
+            <div class="main-header">
+                <hgroup>
+                    <h1>Personal Health Organizer</h1>
+                    <h3>Stwórz swój własny plan</h3>
+                </hgroup>
+                <button class="btn" role="button">Rozpocznij</button>
             </div>
         </div>
+    </div>
 
-        <div class="about-container ">
-            {% for cont in contents %}
-                <h1>{{ cont.title }}</h1>
-                <br>
-                <p>{{ cont.content }}</p>
-            {% endfor %}
+    <div class="row">
+        <div class="first-col col-sm-4">
+          <h1 class="col-header">Treningi</h1>
         </div>
 
+        <div class="second-col col-sm-4">
+            <h1 class="col-header">Żywienie</h1>
+        </div>
+
+        <div class="third-col col-sm-4">
+            <h1 class="col-header">Plany</h1>
+        </div>
     </div>
+
+</div>
+
 {% endblock %}

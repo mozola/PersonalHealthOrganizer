@@ -1,4 +1,72 @@
-.container h1{
-    color: white;
-    font-size: 20px;
+.landing-col {
+   background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/background-homepage-5.jpg') no-repeat;
+   -webkit-background-size: 100% auto;
+   -moz-background-size: 100% auto;
+   -o-background-size: 100% auto;
+    background-size: 100% auto;
+    height:1300px; }
+
+.first-col {
+   background: url('http://hdqwalls.com/wallpapers/running-track-sn.jpg') no-repeat;
+   -webkit-background-size: 100% auto;
+   -moz-background-size: 100% auto;
+   -o-background-size: 100% auto;
+    background-size: 100% auto;
+    height: 400px;
+}
+
+.col-header {
+    font-size: 6em;
+}
+
+.second-col {
+background: url('https://wallpaperstock.net/healthy-diet-wallpapers_53200_1680x1050.jpg') no-repeat;
+-webkit-background-size: 100% auto;
+-moz-background-size: 100% auto;
+-o-background-size: 100% auto;
+ background-size: 100% auto;
+ height: 400px;
+}
+
+
+.third-col {
+background: url('http://www.animhut.com/wp-content/uploads//2012/09/Download-iPhone5-Retina-HD-Wallpapers-43.jpg') no-repeat;
+-webkit-background-size: 100% auto;
+-moz-background-size: 100% auto;
+-o-background-size: 100% auto;
+ background-size: 100% auto;
+ height: 400px;
+}
+
+
+.img {
+    margin-right: -15px; // Remove right gap
+    margin-left: -15px;  // Remove left gap
+    padding-bottom: 62.5%; // ratio is 16:10
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.main-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.main-header h1 {
+    font-size: 6em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }

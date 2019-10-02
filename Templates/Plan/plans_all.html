@@ -1,59 +1,68 @@
 {%extends 'Common/base.html' %}
 {% block content %}
 
-<!--Add basket containe to header-->
-
 <br><br>
 
-    <div id="message">  
-            <div class="container">
-                    {% for key, value in products.items %}
-                    <div class="row">
-                        <div class="col-xs-4">{{key}}</div>
-                        {% for i in value%}
-                            <div class="col-xs-4">{{i}}</div>
-                        {% endfor %}
-                    </div>
-                    {% endfor %}
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>Plany żywieniowe</h1>
+            <p>Wszystkie plany urzytkownika w jednym miejscu</p>
+        </div>
+
+
+        {% for i in objects %}
+
+            <form method="POST" action="/plan/my_plans/{{i.id}}"> {% csrf_token %}
+
+                {% if i.sprint_status in new %}
+                    <input type="submit" value="Start planu" class="btn btn-primary btn-state"/>
+
+                {% elif i.sprint_status in begin %}
+                    <input type="submit" value="Zakończ plan" class="btn btn-primary btn-state"/>
+
+                {% endif %}
+            </form>
+
+            <div class="panel panel-success">
+
+                <div class="panel-heading table-header">
+                    <div class="table-header-name">{{ i.sprint_name }}</div>
+                    <div class="table-header-state">{{ i.sprint_status }}</div>
+                </div>
+
+                <div class="panel-body">
+
+                    <table class="table table-dark table-striped"/>
+
+                        <thread>
+                            <th>Data</th>
+                            <th>Posiłek</th>
+                            <th>Status</th>
+                            <th>Szczeguły</th>
+                        </thread>
+
+                        <tbody>
+                            {% for single_plan in i.sprint_parameters.all %}
+                                {% for meals in single_plan.meals.all %}
+                                {% if single_plan.state %}
+                                    <tr class="success">
+                                {% else %}
+                                    <tr class="warning">
+                                {% endif %}
+                                    <th>{{single_plan.plan_date}}</th>
+                                    <th>{{ meals.name }}</th>
+                                    <th>{{ single_plan.state }}</th>
+                                    <th><a href="/plan/day-plan/{{ single_plan.id }}/detail/" class="btn btn-primary">Szczeguły</a></th>
+                                </tr>
+                                {% endfor %}
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
-    </div>
-
-    <center><h1 class="plan-header">Moje plany żywieniowe</h1></center>
-
-    <div class="table-style">
-        {% for i in my_plans %}
-
-            <div class="table-header">
-                <h2 class="table-header-left">{{ i.sprint_name }}</h2>
-                <h2 class="table-header-right"> Status: {{i.sprint_status}}</h2>
-            </div>
-
-            <table class="table table-dark table-striped"/>
-
-                <thread>
-                    <th>Data</th>
-                    <th>Posiłek</th>
-                    <th>Status</th>
-                </thread>
-        
-                <tbody>
-                    {% for single_plan in i.sprint_parameters.all %}
-                        {% for meals in single_plan.meals.all %}
-                        {% if single_plan.state %}
-                            <tr class="success">
-                        {% else %}
-                            <tr class="warning">
-                        {% endif %}
-                            <th>{{single_plan.plan_date}}</th>
-                            <th>{{ meals.name }}</th>
-                            <th>{{ single_plan.state }}</th>
-                        </tr>
-                        {% endfor %}
-                    {% endfor %}
-                </tbody>
-
-            </table>
-
+            <br>
 
         {% endfor %}
     </div>

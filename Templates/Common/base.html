@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
 
-        {% block "title"%} {% endblock %}
+        {% block "title"%}<title>PHO</title>{% endblock %}
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
@@ -20,12 +20,14 @@
     </style>
 
     <body>
-        {% include "Common/navbar.html" %}
-        {% comment %} {% include "Common/shopping_card.html" %} {% endcomment %}
 
-        <br><br>
+      <div class="bg">
+        {% include "Common/navbar.html" %}
 
         {% block content %} {% endblock %}
+      </div>
+
+      {% include "Common/footer.html" %}
 
     </body>
 </html>

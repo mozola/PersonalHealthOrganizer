@@ -1,82 +1,106 @@
 {%extends 'Common/base.html' %}
 
-    {% block styles %}
-        {% include "Common/styles.css" %}
-        {% include "Meal/styles.css" %}
-    {% endblock %}
+{% block "title"%}<title>Meals all</title>{% endblock %}
+
+{% block styles %}
+    {% include "Common/styles.css" %}
+    {% include "Meal/styles.css" %}
+{% endblock %}
 
 {% block content %}
 
-    <div class="containe">
-        <img src="http://www.eatwellco.com/wp-content/uploads/2017/07/smartphone-food-instagram.jpg" alt="Food"/>
-        <div class="conten">
-            <h1>Dostępne przepisy na stronie</h1>
-            <p>Poniżej znajdują się przepisy które można wykorzystać na potrzeby planowania diety</p>
-        </div>
-    </div>
+<div class="container">
+     <br><br>
+     <div class="jumbotron">
+          <h1>Wszystkie przepisy</h1>
+          <p>Na tej stronie znajdziesz wszystkie przepisy od urzytkowników</p>
+     </div>
+</div>
+
 
     <div class="container  meal-container">
-        <h1>Śniadania</h1>
-        
-        <div class="row">
-            {% for meal in breakfast %}
-                <div class="col-sm-4">
 
-                    <div class="card meal" style="width: 18rem;">
-                        <img class="card-img-top" src="https://static1.squarespace.com/static/51aa2abce4b054d2e09884f7/t/55ec42c3e4b01d71509188b5/1441546948571/phoenicia-diner-brunch.jpg"
-                            alt="Card image cap" style="height: 186px; weight: 100px;">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ meal.name }}</h3>
-                            <p class="card-text">{{ meal.description }}</p>
-                            <p>Meal id: {{ meal.id }}</p>
-                            <a href="/meal/{{ meal.id }}/delete/" class="btn btn-primary">Delete</a>
-                            <a href="/meal/{{ meal.id }}/detail/" class="btn btn-primary">Detail</a>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="table-header-name">Śniadania</div>
+                    </div>
+                    <div class="panel-body">
+                    <div class="row">
+
+                        {% for meal in breakfast %}
+
+                        <div class="col-sm-4">
+                            <div class="card meal-card" >
+                                <img  src="https://static1.squarespace.com/static/51aa2abce4b054d2e09884f7/t/55ec42c3e4b01d71509188b5/1441546948571/phoenicia-diner-brunch.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{meal.name}}</h4>
+                                        <p class="card-text">{{meal.description}}</p>
+                                            <a href="#" class="btn btn-primary">Szczeguły</a>
+                                            <a href="#" class="btn btn-primary">Usunięcie</a>
+                                    </div>
+                            </div>
+
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
-
-            {% endfor %}
-        </div>
-        <br>
-
-        <h1>Obiady</h1>
-        <div class="row">
-            {% for meal in dinner %}
-                <div class="col-sm-4">
-
-                    <div class="card meal" style="width: 18rem;">
-                        <img class="card-img-top" src="https://static1.squarespace.com/static/51aa2abce4b054d2e09884f7/t/55ec42c3e4b01d71509188b5/1441546948571/phoenicia-diner-brunch.jpg"
-                            alt="Card image cap" style="height: 186px; weight: 100px;">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ meal.name }}</h3>
-                            <p class="card-text">{{ meal.description }}</p>
-                            <a href="/meal/{{ simple.id }}/delete/" class="btn btn-primary">Delete</a>
-                            <a href="/meal/{{ meal.id }}/detail/" class="btn btn-primary">Detail</a>
-                        </div>
-                    </div>
                 </div>
-            {% endfor %}
         </div>
 
         <br>
 
-        <h1>Kolacje</h1>
-        <div class="row">
+    <div class="container  meal-container">
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="table-header-name">Obiady</div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                {% for meal in dinner %}
+                            <div class="col-sm-4">
+                                <div class="card meal-card" >
+                                <img  src="https://static1.squarespace.com/static/51aa2abce4b054d2e09884f7/t/55ec42c3e4b01d71509188b5/1441546948571/phoenicia-diner-brunch.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{meal.name}}</h4>
+                                            <p class="card-text">{{meal.description}}</p>
+                                                <a href="#" class="btn btn-primary">Szczeguły</a>
+                                                <a href="#" class="btn btn-primary">Usunięcie</a>
+                                        </div>
+                                </div>
+
+                            </div>
+                {% endfor %}
+                        </div>
+                    </div>
+                </div></div>
+        <br>
+
+        <div class="container  meal-container">
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="table-header-name">Kolacje</div>
+                    </div>
+                    <div class="panel-body">
+                    <div class="row">
             {% for meal in supper %}
-                <div class="col-sm-4">
-                    <div class="card meal" style="width: 18rem;">
-                        <img class="card-img-top" src="https://static1.squarespace.com/static/51aa2abce4b054d2e09884f7/t/55ec42c3e4b01d71509188b5/1441546948571/phoenicia-diner-brunch.jpg"
-                            alt="Card image cap" style="height: 186px; weight: 100px;">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ meal.name }}</h3>
-                            <p class="card-text">{{ meal.description }}</p>
-                            <a href="/meal/{{ meal.id }}/delete/" class="btn btn-primary">Delete</a>
-                            <a href="{{ simple.get_absolute_url }}" class="btn btn-primary">Detail</a>
+                        <div class="col-sm-4">
+                            <div class="card meal-card" >
+                                <img  src="https://static1.squarespace.com/static/51aa2abce4b054d2e09884f7/t/55ec42c3e4b01d71509188b5/1441546948571/phoenicia-diner-brunch.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{meal.name}}</h4>
+                                        <p class="card-text">{{meal.description}}</p>
+                                            <a href="#" class="btn btn-primary">Szczeguły</a>
+                                            <a href="#" class="btn btn-primary">Usunięcie</a>
+                                    </div>
+                            </div>
+
                         </div>
-                    </div>
-                </div>
             {% endfor %}
         </div>
     </div>
-
+                </div>
+        </div>
 {% endblock%}

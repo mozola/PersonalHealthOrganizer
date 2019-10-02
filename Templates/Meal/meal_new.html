@@ -1,5 +1,6 @@
 {% extends 'Common/base.html' %}
 
+{% block "title"%}<title>Meal add</title>{% endblock %}
 
 {% block scripts %}
 
@@ -8,38 +9,47 @@
 
 {% block content %}
 
-    <h1 class="header">Create or update meal</h1>
+<form method="POST" class="meal-form">{% csrf_token %}
+  <div class="container">
+    <br><br>
+    <div class="jumbotron">
+          <h1>Nowy posiłek</h1>
+          <p>Stwórz swój nowy posiłek</p>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
 
-    <form class="meal-form" action='.' method='POST'>{% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Meal name</label>
+                {{form.name}}
+            </div>
 
-        <div class="form-group">
-            <label for="{{ form.name.id_for_label }}">Meal name</label>
-            {{form.name}}
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">Meal description</label>
+                {{form.description}}
+            </div>
+
+            <div class="form-ul">
+                <label for="{{ form.products.id_for_label }}">Meal products</label>
+                {{form.products}}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.callories.id_for_label }}">Meal callories</label>
+                {{form.callories}}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.types.id_for_label }}">Meal types</label>
+                {{form.types}}
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
         </div>
-
-        <div class="form-group">
-            <label for="{{ form.description.id_for_label }}">Meal description</label>
-            {{form.description}}        
-        </div>
-
-        <div class="form-group">
-            <label for="{{ form.products.id_for_label }}">Meal products</label>
-            {{form.products}}
-        </div>
-
-        <div class="form-group">
-            <label for="{{ form.callories.id_for_label }}">Meal callories</label>
-            {{form.callories}}
-        </div>
-
-        <div class="form-group">
-            <label for="{{ form.types.id_for_label }}">Meal types</label>
-            {{form.types}}
-        </div>
-
-        <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
-
-    </form>
+    </div>
+  </div>
+</form>
 
 
 {% endblock %}

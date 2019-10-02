@@ -1,5 +1,7 @@
 {% extends "Common/base.html" %}
 
+{% block "title"%}<title>Meal edit</title>{% endblock %}
+
 {% block content %}
     <form action="." method="POST"> {% csrf_token %}
         <h1>Update meal</h1> 
