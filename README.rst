@@ -1,5 +1,5 @@
 ========
- DIX
+ DIXPersonalHealthOrganizer
 ========
 
 .. image:: https://readthedocs.org/projects/sphinx/badge/?version=master

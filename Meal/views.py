@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import DetailView, UpdateView, CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView
 
-from .models import Meal, Product, Component
+from .models import Meal, Component
 from .forms import NewMealForm, NewComponent
 
 
@@ -16,9 +16,9 @@ def index(request):
     supper = list(single_meal('kolacja'))
 
     return render(request, 'Meal/meal_main.html',
-                          {'breakfast': breakfast,
-                           'dinner': dinner,
-                           'supper': supper})
+                  {'breakfast': breakfast,
+                   'dinner': dinner,
+                   'supper': supper})
 
 
 def details(request, meal_id):
@@ -71,17 +71,3 @@ class MealUpdateView(UpdateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
-
-
-"""
-
-    class DetailView(DetailView):
-        template_name = 'path to html file'
-        queryset = Articles.objects.all()
-
-        def get_object(self):
-            id_ = self.kwargs.get('id')
-            return get_object_or_404(Articles, id=id_)
-
-    # stosowane jeżeli mamy formularz
-"""
