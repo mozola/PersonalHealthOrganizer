@@ -27,6 +27,20 @@ To run this application user should clone this repo in a local machine.
 The next step will be to run tox command with is responsible for create virtual
 environment and run application on specific port.
 
+**Current features**
+
+- [x] Storage all informations about products and meals
+
+- [x] Ability to create and manage nutrition plans
+
+- [ ] Storage informations about exercices
+
+- [ ] Ability to create exercise plans
+
+- [X] After plan start user should recive information with shoppuing list
+
+- [] Status bar when user create a new plan
+
 
 **Bellow are presented screens from the program.**
 
