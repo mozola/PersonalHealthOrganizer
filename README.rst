@@ -1,6 +1,6 @@
-========
- DIXPersonalHealthOrganizer
-========
+=======================
+PersonalHealthOrganizer
+=======================
 
 .. image:: https://readthedocs.org/projects/sphinx/badge/?version=master
    :target: https://dix.readthedocs.io/en/latest/
@@ -10,34 +10,64 @@
    :target: https://travis-ci.org/mozola/DIX
    :alt: Build Status (Travis CI)
 
-What is the PersonalHealthOrganizer?
+PHO is a application created to create and manage mutrition plans and
+exercise plans. This application is created alike to people who have
+active lifestyle or just want to not waste food. 
 
-PersonalHealthOrganizer is the project created to manage user diets and trainings. Also this app can be used to manage user fridge. 
+**PersonalHealthOrganizer is the application dedicated to people who:**
 
-What does it mean?
+- want to prepare nutrition plan and measure the status
+- buy a products dedicated to the plan not random products
+- want's to have information about meals to the next day and how to prepare them
+- want to prepare plan with informations about single meal calories
 
-It's mean that when the user planing meals to the next week than he can prepare something like sprint with contain all meals on this week.
+**How to run this application on a server?**
 
-Next step will be do the shopping and when you start your sprint you will see all your products in your basket. When you eat some meals and update sprint then he will see less products in the basket. When user finished sprint then will see what products you have and what you need to prepare
-meals to the new sprint.
+To run this application user should clone this repo in a local machine.
 
-It's all?
-No. In this project we will see something Exercise Planner but this is not implemented yet. Instruction how to prepare sprints and how to manage sprints I will add soon.
+.. code-block:: bash
+		
+	  git clone https://github.com/mozola/PersonalHealthOrganizer.git
 
-Bellow are presented screens from the program.
+After that user should go to created folder. In linux system it will be cd command:
 
-.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-13-29-43-1200x598.png
+.. code-block:: bash
+		
+	  cd PersonalHealthOrganizer
+
+The next step will be to run tox command with is responsible for create virtual
+environment and run application on specific port.
+
+.. code-block:: bash
+		
+	  tox -e run-application
+
+**Current features**
+
+- [x] Storage all informations about products and meals
+
+- [x] Ability to create and manage nutrition plans
+
+- [ ] Storage informations about exercices
+
+- [ ] Ability to create exercise plans
+
+- [X] After plan start user should recive information with shoppuing list
+
+- [] Status bar when user create a new plan
+
+
+**Bellow are presented screens from the program.**
+
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-50-58.png
    :alt: First screen
 
 
-.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-11-34-33-1-1200x566.png
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-57-05.png
    :alt: First screen
    
-.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-13-30-18-1200x626.png
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-59-10.png
    :alt: First screen
 
-
-
-
-Best Regards,
-DIX
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-23-00-00.png
+   :alt: First screen

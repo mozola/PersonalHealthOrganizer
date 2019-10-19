@@ -4,20 +4,22 @@
 
 {% block content %}
 
-
-{% if state == True%}
-    <h1>Posilek zostal dodany</h1>
-{% else %}
+{% comment %} Should be removed after add ccs {% endcomment %}
+<br>
 
   <div class="container">
-    <br><br>
-    <div class="jumbotron">
-          <h1>Nowy produkt</h1>
-          <p>Dodaj produkt do bazy</p>
+
+    <div class="row jumbotron">
+            <h1>Nowy produkt</h1>
+            <p>Dodaj produkt do bazy</p>
     </div>
-    <div class="panel panel-success">
+
+    <div class="row panel panel-success">
+
         <div class="panel-heading"></div>
+
         <div class="panel-body">
+
             <form method="POST" class="meal-form">{% csrf_token %}
                 <div class="form-group">
                     <label for="{{ form.name.id_for_label }}">Product name</label>
@@ -42,10 +44,11 @@
                 <input type="submit" value="Save" class="btn btn-primary submit-btn"/>
 
             </form>
-        </div>
-    </div>
-  </div>
 
-        {% endif %}
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock%}
