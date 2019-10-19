@@ -4,17 +4,24 @@
     color: azure;
 }
 
+li {
+    width: 1200px;
+}
+
 .first-record {
     background: #24304D;
     color: #ffffff;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: 400;
+    clor: white
     text-align: center;
     height: 200px;
 }
 
+/* Second record styles */
+
 .second-record {
-    background: #1F6E5D;
+    background: #2A2C39/*#1F6E5D*/;
     margin-top: -30px;
     height: 1100px;
 
@@ -34,9 +41,12 @@
     padding-bottom: 100px;
 }
 
+
+/* Third record styles */
+
 .third-record {
     margin-top: -30px;
-    background: #BFB599;
+    background: #525252/*#BFB599*/;
     height: 1000px;
 }
 
@@ -51,17 +61,21 @@
     padding: 30px;
 }
 
+/* Header element in main page */
+
 .bg-1 { 
     margin-top: -20px;
-    background-color: #1abc9c;
-    color: #ffffff;
-    height: 1000px;
+    background: url(http://waldemar.mozola.pl/wp-content/uploads/2019/10/sushi-maison3.jpg);
+    height: 1200px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .bg-1 h1 {
-    font-size: 50px;
-    padding-top: 100px;
+    font-size: 10rem;
+    font-family: 'Bree Serif';
+    font-weight: 400;
+    color: white;
+    padding-top: 300px;
 }
 
 .bg-1 .header-img {
@@ -69,4 +83,18 @@
     display:inline;
     width: 500px;
     height: 500px;
+}
+
+
+/* Arrow & Hover Animation */
+
+#more-arrows {
+    margin-top: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+polygon {
+  fill: #FFF;
+  transition: all .2s ease-out; 
 }
