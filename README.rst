@@ -24,8 +24,20 @@ active lifestyle or just want to not waste food.
 **How to run this application on a server?**
 
 To run this application user should clone this repo in a local machine.
+
+.. code:: bash
+	  git clone https://github.com/mozola/PersonalHealthOrganizer.git
+
+After that user should go to created folder. In linux system it will be cd command:
+
+.. code:: bash
+	  cd PersonalHealthOrganizer
+
 The next step will be to run tox command with is responsible for create virtual
 environment and run application on specific port.
+
+.. code:: bash
+	  tox -e run-application
 
 **Current features**
 
