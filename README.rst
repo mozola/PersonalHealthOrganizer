@@ -59,13 +59,15 @@ environment and run application on specific port.
 
 **Bellow are presented screens from the program.**
 
-.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-13-29-43-1200x598.png
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-50-58.png
    :alt: First screen
 
 
-.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-11-34-33-1-1200x566.png
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-57-05.png
    :alt: First screen
    
-.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/09/Screenshot-from-2019-09-07-13-30-18-1200x626.png
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-59-10.png
    :alt: First screen
 
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-23-00-00.png
+   :alt: First screen
