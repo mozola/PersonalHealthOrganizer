@@ -7,32 +7,81 @@
 
 {% block content %}
 
-<div class="container-fluid">
+{% comment %} Header to main website {% endcomment %}
 
-    <div class="row">
-        <div class="landing-col col-xs-12">
-            <div class="main-header">
-                <hgroup>
-                    <h1>Personal Health Organizer</h1>
-                </hgroup>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="first-col col-sm-4">
-          <h1 class="col-header">Treningi</h1>
-        </div>
-
-        <div class="second-col col-sm-4">
-            <h1 class="col-header">Żywienie</h1>
-        </div>
-
-        <div class="third-col col-sm-4">
-            <h1 class="col-header">Plany</h1>
-        </div>
-    </div>
-
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+    <h1 class="margin">Personal Health Organizer</h1>
+    <img class="header-img" src="https://freepngimg.com/thumb/health/22943-8-health-image.png" class="img-responsive">
+    <h3>Stwórz swój własny plan wraz z PHO</h3>
 </div>
+
+<!-- First Container -->
+
+<div class="jumbotron first-record">
+    <div class="container text-center">     
+        <p><i>
+            Twoje pożywienie powinno być 
+            lekarstwem, a Twoje lekarstwo powinno być pożywieniem.
+        </i></p>
+        <p>Hipokrates</p>
+    </div>
+</div>
+
+<!-- Second Container -->
+
+<div class="jumbotron second-record">
+    <div class="container-fluid bg-3 text-center">    
+        <h1 class="margin">Zasada działania</h1><br>
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <h2>Planowanie</h2>
+                    <p>
+                        Planowanie wszystkich posiłków i treningów po przez układanie cyklicznych planów.
+                        W związku z tym że klienci otrzymują wygenmerowaną listę zakupów na podstawie 
+                        stworzonych planów oszczędzają dodatkowo czas i pieniądze na zbędne produkty.
+                    </p>
+                    <img src="https://www.scotthoward.me/wp-content/uploads/2016/02/plan.jpg" class="img-responsive margin">
+                </div>
+
+                <div class="col-sm-4"> 
+                    <h2>Wykonanie</h2>
+                    <p>
+                        Wykonanie oraz zarządzanie istniejącym planem pozwala na bierząco
+                        monitorować stopień zrealizowania planu oraz na zatwierdzanie
+                        zakończonych etapów. Dodatkowo na podstawie zrealizowanych
+                        mikroplanów stan koszyka.
+                    </p>
+                    <img src="http://www.technogey.com/images/site-img27.jpg" class="img-responsive margin">
+                </div>
+
+                <div class="col-sm-4"> 
+                    <h2>Sprawdzanie</h2>
+                    <p>
+                        każdy urzytkownik ma możliwość przeglądu zrealizowanych planów oraz ich weryfikację.
+                        Daje to możliwość na sprawdzenie histori spożywanych kalorii oraz indeksu kalorycznego.
+                        Po zrealizowaniu planu użytkownik jest w stanie sprawdzić czy wprowadzona dieta
+                        i plan treningowy dają efekt.
+                    </p>
+                    <img src="https://www.ctactil.com/Files/130316/Img/11/Assistance-a-distance-2.jpg" class="img-responsive margin">
+                </div>
+            </div>
+
+    </div>
+</div>
+
+<!-- Third Container -->
+
+<div class="jumbotron third-record">
+    <ul class="container text-center">
+        <h1>Główne funkcjonalności</h1>  
+        <ul>    
+            <li>tworzenie nowych przepisów oraz dodawanie nowych produktów</li>
+            <li>wyznaczanie kaloryczności posiłków i planów na podstawie wybranych produktów</li>
+            <li>przygotowywanie listy zakupów na podstawie utworzonych planów</li>
+    </ul>
+</div>
+
 
 {% endblock %}

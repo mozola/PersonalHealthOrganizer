@@ -1,48 +1,56 @@
-<nav class="navbar navbar-inverse  navbar-fixed-top">
+<nav class="navbar navbar-default">
 
-        <div class="container-fluid">
+        <div class="container">
+
+        {% comment %} Header navbaer {% endcomment %}
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
                 <a class="navbar-brand" href = "/">PersonalHealthOrganizer</a>
             </div>
+            
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
 
-            <ul class="nav navbar-nav">
+                {% if user.is_authenticated %}
 
-               {% if user.is_authenticated %}
+                    <li class="drop-down">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/meals/">
+                            Posiłki
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/meal/all/">Wszystkie posiłki</a></li>
+                            <li><a href="/meal/new_meal/">Dodan posiłek</a></li>
+                            <li><a href="/meal/new_component/">Dodaj składnik</a></li>
+                        </ul>
+                    </li>
 
-                <li class="drop-down">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="/meals/">
-                        Posiłki
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/meal/all/">Wszystkie posiłki</a></li>
-                        <li><a href="/meal/new_meal/">Dodan posiłek</a></li>
-                        <li><a href="/meal/new_component/">Dodaj składnik</a></li>
-                    </ul>
-                </li>
+                    <li class="drop-down">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="exercises/">
+                            Ćwiczenia
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/exercises/all/">Wszystkie ćwiczenia</a></li>
+                            <li><a href="/exercises/my_plans">Dodan ćwiczenie</a></li>
+                        </ul>
+                    </li>
 
-                <li class="drop-down">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="exercises/">
-                        Ćwiczenia
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/exercises/all/">Wszystkie ćwiczenia</a></li>
-                        <li><a href="/exercises/my_plans">Dodan ćwiczenie</a></li>
-                    </ul>
-                 </li>
-
-                <li class="drop-down">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="/my_plans/">
-                        Plany
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/plan/new_plan">Tworzenie planu</a></li>
-                        <li><a href="/plan/new_plan_day">Tworzenie jednodniowego planu</a></li>
-                        <li><a href="/plan/all">Istniejące plany</a></li>
-                    </ul>
-                 </li>
+                    <li class="drop-down">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/my_plans/">
+                            Plany
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/plan/new_plan">Tworzenie planu</a></li>
+                            <li><a href="/plan/new_plan_day">Tworzenie jednodniowego planu</a></li>
+                            <li><a href="/plan/all">Istniejące plany</a></li>
+                        </ul>
+                    </li>
 
                 {% else %}
                 <li class="nav-item">
@@ -53,9 +61,10 @@
                     <a class="nav-link" href="/exercises/all">Ćwiczenia</a>
                 </li>
                 {% endif %}
-            </ul>
+                </ul>
+            </div>
 
-            <ul class="nav navbar-nav navbar-right">
+            {% comment %} <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
 
                 <li class="nav-item">
@@ -67,21 +76,22 @@
 
                 <li class="nav-item">
                         <a href="/user/logout/">
-                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Wyloguj się</a>
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Wyloguj się</a>
                 </li>
 
                 <li class="nav-item">
                         <a href="/admin/">
-                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Tablica</a>
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Tablica</a>
                 </li>
 
                 {% else %}
                     <li class="nav-item">
-                       <form class="form-inline" action="/user/login/">
+                        <form class="form-inline" action="/user/login/">
                             <button class="btn btn-success" type="submit">Zaloguj</button>
-                       </form>
+                        </form>
                     </li>
                 {% endif %}
-            </ul>
+            </ul> {% endcomment %}
+
         </div>
     </nav>
