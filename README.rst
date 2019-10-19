@@ -25,18 +25,21 @@ active lifestyle or just want to not waste food.
 
 To run this application user should clone this repo in a local machine.
 
-.. code:: bash
+.. code-block:: bash
+		
 	  git clone https://github.com/mozola/PersonalHealthOrganizer.git
 
 After that user should go to created folder. In linux system it will be cd command:
 
-.. code:: bash
+.. code-block:: bash
+		
 	  cd PersonalHealthOrganizer
 
 The next step will be to run tox command with is responsible for create virtual
 environment and run application on specific port.
 
-.. code:: bash
+.. code-block:: bash
+		
 	  tox -e run-application
 
 **Current features**
