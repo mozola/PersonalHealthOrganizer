@@ -24,13 +24,26 @@ meals to the new sprint.
 It's all?
 No. In this project we will see something Exercise Planner but this is not implemented yet. Instruction how to prepare sprints and how to manage sprints I will add soon.
 
-Bellow are presented screens from the program.
+-------------------------------------------
+Bellow are presented screen with main page.
+-------------------------------------------
 
 .. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-50-58-744x391.png
    :alt: First screen
+   :width: 400
 
+---------------------------------
+Additionall screen from main page
+--------------------------------- 
+   
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-57-05-744x383.png
+   :alt: First screen
+   :width: 400
 
+------------------------------------
+Screen with form to add new product
+------------------------------------
 
-
-Best Regards,
-DIX
+.. image:: http://waldemar.mozola.pl/wp-content/uploads/2019/10/Screenshot-from-2019-10-19-22-59-10-744x407.png
+   :alt: First screen
+   :width: 400
